@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notenexpres – Recepten</title>
+
+  <style>
+    :root{
+      --brand:#E53D23;
+      --text:#1b1b1b;
+      --muted:#555;
+      --shadow:0 16px 34px rgba(0,0,0,.10);
+      --radius:22px;
+      --side:22px;
+    }
+    *{ box-sizing:border-box; }
+    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#fff; color:var(--text); min-height:100vh; }
+    body::before, body::after{ content:""; position:fixed; top:0; bottom:0; width:var(--side); background:var(--brand); z-index:0; }
+    body::before{ left:0; } body::after{ right:0; }
+    .wrap{ position:relative; z-index:1; width:min(900px, calc(100% - (var(--side) * 2) - 24px)); margin:0 auto; padding:18px 0 46px; }
+    .card{ background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid rgba(0,0,0,.07); padding:18px 18px 22px; }
+    .top{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:10px; }
+    .back{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px; border-radius:14px; text-decoration:none;
+      color:var(--brand); background:#fff; border:2px solid rgba(229,61,35,.28);
+      font-weight:800;
+    }
+    .back:hover{ background:#fff3ef; border-color:rgba(229,61,35,.45); }
+    .logo{ height:40px; width:auto; }
+
+    h1{ margin:10px 0 6px; font-size:clamp(26px,5.4vw,40px); }
+    .sub{ margin:0 0 16px; color:var(--muted); font-size:clamp(14px,3.2vw,17px); }
+
+    .section{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:18px;
+      padding:14px;
+      margin:14px 0;
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size:20px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .pill{
+      display:inline-block;
+      font-size:12px;
+      font-weight:800;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#fff3ef;
+      color:#7a1d10;
+      border:1px solid rgba(229,61,35,.22);
+    }
+
+    .grid{ display:grid; gap:12px; }
+    @media (min-width:760px){ .grid{ grid-template-columns: 1fr 1fr; } }
+
+    .btn{
+      display:flex; align-items:center; gap:12px;
+      width:100%;
+      padding:16px 14px;
+      border-radius:18px;
+      text-decoration:none;
+      font-weight:850;
+      color:var(--brand);
+      background:#fff;
+      border:2px solid rgba(229,61,35,.22);
+      box-shadow: 0 10px 18px rgba(0,0,0,.06);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background:#fff3ef; border-color: rgba(229,61,35,.40); }
+    .ico{ font-size:22px; line-height:1; }
+    .txt{ display:flex; flex-direction:column; }
+    .title{ font-size:18px; }
+    .desc{ font-size:13px; color:var(--muted); font-weight:600; margin-top:3px; }
+
+    @media (max-width:360px){ :root{ --side:16px; } }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="top">
+        <a class="back" href="index.html">← Terug</a>
+        <img class="logo" src="logo.jpg" alt="Notenexpres logo">
+      </div>
+
+      <h1>Recepten</h1>
+      <p class="sub">Kies een recept. Elk recept opent een eigen pagina met ingrediënten en stappenplan.</p>
+
+      <!-- ZOET -->
+      <div class="section">
+        <h2>🍪 Zoet <span class="pill">snacks • koek • cake</span></h2>
+        <div class="grid">
+          <a class="btn" href="recept-cranberry-havermout.html">
+            <div class="ico">🥣</div><div class="txt"><div class="title">Cranberry havermoutkoekjes</div><div class="desc">makkelijk • 25 min</div></div>
+          </a>
+          <a class="btn" href="recept-abrikozen-energieballetjes.html">
+            <div class="ico">⚡</div><div class="txt"><div class="title">Abrikozen energieballetjes</div><div class="desc">no-bake • 15 min</div></div>
+          </a>
+          <a class="btn" href="recept-dadels-notenreep.html">
+            <div class="ico">🍫</div><div class="txt"><div class="title">Dadel-notenrepen</div><div class="desc">no-bake • 15 min</div></div>
+          </a>
+          <a class="btn" href="recept-medjool-stuffed.html">
+            <div class="ico">✨</div><div class="txt"><div class="title">Gevulde Medjool dadels</div><div class="desc">snelle snack • 10 min</div></div>
+          </a>
+          <a class="btn" href="recept-spaanse-vijgen-bites.html">
+            <div class="ico">🍯</div><div class="txt"><div class="title">Vijgen bites met noten</div><div class="desc">no-bake • 15 min</div></div>
+          </a>
+          <a class="btn" href="recept-amandelspijs-stolletjes.html">
+            <div class="ico">🥐</div><div class="txt"><div class="title">Amandelspijs stolletjes</div><div class="desc">oven • 30–35 min</div></div>
+          </a>
+          <a class="btn" href="recept-sukade-cake.html">
+            <div class="ico">🍰</div><div class="txt"><div class="title">Sukade-cake</div><div class="desc">oven • 60 min</div></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- HARTIG -->
+      <div class="section">
+        <h2>🥗 Hartig <span class="pill">salade • maaltijd • borrel</span></h2>
+        <div class="grid">
+          <a class="btn" href="recept-jumbo-pinda-noedels.html">
+            <div class="ico">🍜</div><div class="txt"><div class="title">Krokante pinda-noedels</div><div class="desc">maaltijd • 20 min</div></div>
+          </a>
+          <a class="btn" href="recept-salademix-crunch-salade.html">
+            <div class="ico">🥬</div><div class="txt"><div class="title">Salade met salademix-crunch</div><div class="desc">salademix 250g • 15 min</div></div>
+          </a>
+          <a class="btn" href="recept-salade-abrikoos-cranberry.html">
+            <div class="ico">🥙</div><div class="txt"><div class="title">Salade met abrikoos & cranberry</div><div class="desc">hartig-zoet • 15 min</div></div>
+          </a>
+          <a class="btn" href="recept-dadels-bacon.html">
+            <div class="ico">🥓</div><div class="txt"><div class="title">Dadels met bacon uit de oven</div><div class="desc">borrelhap • 20 min</div></div>
+          </a>
+          <a class="btn" href="recept-pijnboompitten-pesto.html">
+            <div class="ico">🌿</div><div class="txt"><div class="title">Pesto met pijnboompitten</div><div class="desc">saus • 10 min</div></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- POWER & TOPPINGS -->
+      <div class="section">
+        <h2>💪 Power &amp; Toppings <span class="pill">bowl • topping • boost</span></h2>
+        <div class="grid">
+          <a class="btn" href="recept-superfoodmix-bowl.html">
+            <div class="ico">🥣</div><div class="txt"><div class="title">Superfoodmix yoghurt bowl</div><div class="desc">superfoodmix 250g • 5 min</div></div>
+          </a>
+          <a class="btn" href="recept-cashew-dressing.html">
+            <div class="ico">🥜</div><div class="txt"><div class="title">Romige cashew-dressing</div><div class="desc">voor salades • 10 min</div></div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
