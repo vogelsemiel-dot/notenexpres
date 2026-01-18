@@ -20,7 +20,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -41,7 +41,7 @@ var PRODUCTEN_PER_CATEGORIE = {
     {
       "naam": "Mix Noten",
       "bevat": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "kanBevatten": [],
@@ -67,7 +67,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -86,12 +86,12 @@ var PRODUCTEN_PER_CATEGORIE = {
       "zieVerpakking": []
     },
     {
-      "naam": "Pinda's",
+      "naam": "Pinda",
       "bevat": [
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -115,7 +115,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -139,7 +139,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -160,7 +160,7 @@ var PRODUCTEN_PER_CATEGORIE = {
     {
       "naam": "Rozijnencocktail",
       "bevat": [
-        "Pinda's"
+        "Pinda"
       ],
       "kanBevatten": [
         "Noten"
@@ -187,7 +187,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -211,7 +211,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -235,7 +235,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -259,7 +259,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -283,7 +283,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -307,7 +307,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -328,7 +328,7 @@ var PRODUCTEN_PER_CATEGORIE = {
     {
       "naam": "Pepitamix",
       "bevat": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "kanBevatten": [
@@ -358,7 +358,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -381,7 +381,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -405,7 +405,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -429,7 +429,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -453,7 +453,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -477,7 +477,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -496,9 +496,9 @@ var PRODUCTEN_PER_CATEGORIE = {
       "zieVerpakking": []
     },
     {
-      "naam": "Pinda's",
+      "naam": "Pinda",
       "bevat": [
-        "Pinda's"
+        "Pinda"
       ],
       "kanBevatten": [
         "Noten"
@@ -525,7 +525,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -549,7 +549,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -573,7 +573,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -597,7 +597,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -621,7 +621,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -645,7 +645,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -669,7 +669,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -693,7 +693,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -714,9 +714,9 @@ var PRODUCTEN_PER_CATEGORIE = {
   ],
   "zoete-noten": [
     {
-      "naam": "Suiker pinda's",
+      "naam": "Suiker Pinda",
       "bevat": [
-        "Pinda's"
+        "Pinda"
       ],
       "kanBevatten": [
         "Noten"
@@ -743,7 +743,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -765,7 +765,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Chocomix",
       "bevat": [
         "Gluten",
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk",
         "Noten"
@@ -788,7 +788,7 @@ var PRODUCTEN_PER_CATEGORIE = {
     {
       "naam": "Chocopinda puur",
       "bevat": [
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk"
       ],
@@ -812,7 +812,7 @@ var PRODUCTEN_PER_CATEGORIE = {
     {
       "naam": "Chocopinda melk",
       "bevat": [
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk"
       ],
@@ -840,7 +840,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Melk"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -864,7 +864,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Melk"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -888,7 +888,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Melk"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -908,7 +908,7 @@ var PRODUCTEN_PER_CATEGORIE = {
     {
       "naam": "Pindarotsjes melk",
       "bevat": [
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk"
       ],
@@ -932,7 +932,7 @@ var PRODUCTEN_PER_CATEGORIE = {
     {
       "naam": "Pindarotsjes puur",
       "bevat": [
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk"
       ],
@@ -956,7 +956,7 @@ var PRODUCTEN_PER_CATEGORIE = {
     {
       "naam": "Pindarotsjes wit",
       "bevat": [
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk"
       ],
@@ -980,7 +980,7 @@ var PRODUCTEN_PER_CATEGORIE = {
     {
       "naam": "Pindarotsjes caramel-zeezout",
       "bevat": [
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk"
       ],
@@ -1009,7 +1009,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1031,7 +1031,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Ongezwavelde abrikozen",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1056,7 +1056,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1080,7 +1080,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1102,7 +1102,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Iran dadels",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1125,7 +1125,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Dadels zonder pit",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1148,7 +1148,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Medjool dadels",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1171,7 +1171,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Vijgen",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1194,7 +1194,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Snackvijgen",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1217,7 +1217,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Cranberries",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1240,7 +1240,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Pruimen",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1263,7 +1263,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Pruimen zonder pit",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten",
         "Sulfiet"
       ],
@@ -1288,7 +1288,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten",
         "Sesam"
       ],
@@ -1310,7 +1310,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Chileense rozijnen",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1333,7 +1333,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Gele rozijnen",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1356,7 +1356,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Sultana rozijnen",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1378,7 +1378,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Krenten",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1405,7 +1405,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1429,7 +1429,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1453,7 +1453,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1477,7 +1477,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1501,7 +1501,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1525,7 +1525,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1552,7 +1552,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Schaaldieren",
         "Ei",
         "Vis",
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk",
         "Noten",
@@ -1571,7 +1571,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sesam"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1595,7 +1595,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk"
       ],
@@ -1619,7 +1619,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk"
       ],
@@ -1641,7 +1641,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Hennepzaad",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1664,7 +1664,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Moerbeibessen",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1687,7 +1687,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Chiazaad",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1710,7 +1710,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Gojibessen",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten",
         "Sulfiet"
       ],
@@ -1735,7 +1735,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -1759,7 +1759,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -1784,7 +1784,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Mosterd"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Selderij"
       ],
       "zonder": [
@@ -1807,7 +1807,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -1831,7 +1831,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -1855,7 +1855,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -1880,7 +1880,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Melk"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -1905,7 +1905,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -1930,7 +1930,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Schaaldieren",
         "Ei",
         "Vis",
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk",
         "Noten",
@@ -1952,7 +1952,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Schaaldieren",
         "Ei",
         "Vis",
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk",
         "Noten",
@@ -1974,7 +1974,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Schaaldieren",
         "Ei",
         "Vis",
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk",
         "Noten",
@@ -1996,7 +1996,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Schaaldieren",
         "Ei",
         "Vis",
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk",
         "Noten",
@@ -2012,7 +2012,7 @@ var PRODUCTEN_PER_CATEGORIE = {
     {
       "naam": "Pindakaas 100% pinda",
       "bevat": [
-        "Pinda's"
+        "Pinda"
       ],
       "kanBevatten": [
         "Noten"
@@ -2039,7 +2039,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -2066,7 +2066,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Schaaldieren",
         "Ei",
         "Vis",
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk",
         "Noten",
@@ -2088,7 +2088,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Schaaldieren",
         "Ei",
         "Vis",
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk",
         "Noten",
@@ -2110,7 +2110,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Schaaldieren",
         "Ei",
         "Vis",
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk",
         "Noten",
@@ -2132,7 +2132,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Schaaldieren",
         "Ei",
         "Vis",
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk",
         "Noten",
@@ -2153,7 +2153,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -2177,7 +2177,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -2200,7 +2200,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Schaaldieren",
@@ -2223,7 +2223,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Gluten"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten",
         "Sulfiet"
       ],
@@ -2256,7 +2256,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2280,7 +2280,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2304,7 +2304,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2328,7 +2328,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2352,7 +2352,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2376,7 +2376,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2400,7 +2400,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2424,7 +2424,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2448,7 +2448,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2470,7 +2470,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Borrelnoten chili",
       "bevat": [
         "Gluten",
-        "Pinda's",
+        "Pinda",
         "Melk"
       ],
       "kanBevatten": [
@@ -2496,7 +2496,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2520,7 +2520,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2544,7 +2544,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2568,7 +2568,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2592,7 +2592,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sulfiet"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten",
         "Sesam"
       ],
@@ -2614,7 +2614,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Lijnzaad",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2637,7 +2637,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Gebroken lijnzaad",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2662,7 +2662,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Gluten"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Noten",
         "Sesam"
@@ -2686,7 +2686,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Gluten"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2710,7 +2710,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Gluten"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Noten",
         "Sesam"
@@ -2736,7 +2736,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       ],
       "kanBevatten": [
         "Ei",
-        "Pinda's",
+        "Pinda",
         "Sesam"
       ],
       "zonder": [
@@ -2756,7 +2756,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Katjang pedis",
       "bevat": [
         "Gluten",
-        "Pinda's"
+        "Pinda"
       ],
       "kanBevatten": [
         "Noten",
@@ -2785,7 +2785,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "kanBevatten": [
         "Schaaldieren",
         "Vis",
-        "Pinda's",
+        "Pinda",
         "Melk",
         "Noten",
         "Sesam",
@@ -2804,7 +2804,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Borrelnoten festival",
       "bevat": [
         "Gluten",
-        "Pinda's"
+        "Pinda"
       ],
       "kanBevatten": [
         "Noten"
@@ -2828,7 +2828,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Wasabi nuts",
       "bevat": [
         "Gluten",
-        "Pinda's",
+        "Pinda",
         "Soja"
       ],
       "kanBevatten": [
@@ -2855,7 +2855,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Soja"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2880,7 +2880,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "kanBevatten": [
         "Schaaldieren",
         "Vis",
-        "Pinda's",
+        "Pinda",
         "Melk",
         "Noten",
         "Sesam",
@@ -2903,7 +2903,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Soja"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2927,7 +2927,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sesam"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2952,7 +2952,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Sesam"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -2975,7 +2975,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Soja"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten",
         "Sesam"
       ],
@@ -2999,7 +2999,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Melk"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten",
         "Sesam"
       ],
@@ -3023,7 +3023,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Melk"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten",
         "Sesam"
       ],
@@ -3049,7 +3049,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Gluten",
         "Schaaldieren",
         "Vis",
-        "Pinda's",
+        "Pinda",
         "Melk",
         "Noten",
         "Sulfiet"
@@ -3074,7 +3074,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "kanBevatten": [
         "Schaaldieren",
         "Vis",
-        "Pinda's",
+        "Pinda",
         "Melk",
         "Noten",
         "Sulfiet"
@@ -3094,7 +3094,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -3116,7 +3116,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Chinese bollen mix",
       "bevat": [
         "Gluten",
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Sesam"
       ],
@@ -3143,7 +3143,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Melk"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten",
         "Selderij",
         "Mosterd",
@@ -3166,7 +3166,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -3185,9 +3185,9 @@ var PRODUCTEN_PER_CATEGORIE = {
       "zieVerpakking": []
     },
     {
-      "naam": "Doppinda's",
+      "naam": "DopPinda",
       "bevat": [
-        "Pinda's"
+        "Pinda"
       ],
       "kanBevatten": [
         "Noten"
@@ -3209,9 +3209,9 @@ var PRODUCTEN_PER_CATEGORIE = {
       "zieVerpakking": []
     },
     {
-      "naam": "Vogelpinda's",
+      "naam": "VogelPinda",
       "bevat": [
-        "Pinda's"
+        "Pinda"
       ],
       "kanBevatten": [
         "Noten"
@@ -3236,7 +3236,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Pofmaïs",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -3259,7 +3259,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Zoute zonnebloempitten",
       "bevat": [],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -3284,7 +3284,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Gluten"
       ],
       "kanBevatten": [
-        "Pinda's",
+        "Pinda",
         "Noten"
       ],
       "zonder": [
@@ -3308,7 +3308,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Noten"
       ],
       "kanBevatten": [
-        "Pinda's"
+        "Pinda"
       ],
       "zonder": [
         "Gluten",
@@ -3335,7 +3335,7 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Schaaldieren",
         "Ei",
         "Vis",
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Melk",
         "Noten",
@@ -3352,7 +3352,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Japanse mix",
       "bevat": [
         "Gluten",
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Sesam"
       ],
@@ -3376,7 +3376,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Jumbo bollenmix",
       "bevat": [
         "Gluten",
-        "Pinda's",
+        "Pinda",
         "Soja",
         "Sesam"
       ],
@@ -3405,7 +3405,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "kanBevatten": [
         "Schaaldieren",
         "Vis",
-        "Pinda's",
+        "Pinda",
         "Melk",
         "Noten",
         "Sesam",
@@ -3424,7 +3424,7 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Borrelnoten gemengd",
       "bevat": [
         "Gluten",
-        "Pinda's"
+        "Pinda"
       ],
       "kanBevatten": [
         "Noten",
