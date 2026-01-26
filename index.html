@@ -112,10 +112,22 @@
     }
 
     .card{
-      border-radius:24px;
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.10);
-      padding:14px;
+  display:block;
+  border-radius:24px;
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.10);
+  padding:14px;
+  color:var(--text);
+  text-decoration:none;
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+}
+
+.card:hover{
+  transform: translateY(-1px);
+  border-color: rgba(229,61,35,.45);
+  background: rgba(229,61,35,.10);
+}
+
     }
 
     .card h3{
@@ -193,19 +205,17 @@
       <p>Zin in iets lekkers? Ontdek onze recepten of check direct de allergenen per product.</p>
     </section>
 
-    <section class="grid">
-      <div class="card">
-        <h3>Recepten</h3>
-        <p>Inspiratie met noten, zaden en gedroogd fruit.</p>
-        <a class="biglink" href="recepten.html">Naar recepten →</a>
-      </div>
+   <section class="grid">
+  <a class="card" href="recepten.html">
+    <h3>Recepten</h3>
+    <p>Inspiratie met noten, zaden en gedroogd fruit.</p>
+  </a>
 
-      <div class="card">
-        <h3>Allergenen</h3>
-        <p>Snel overzicht per product en categorie.</p>
-        <a class="biglink" href="allergenen.html">Naar allergenen →</a>
-      </div>
-    </section>
+  <a class="card" href="allergenen.html">
+    <h3>Allergenen</h3>
+    <p>Snel overzicht per product en categorie.</p>
+  </a>
+</section>
 
     <section class="linksBar">
       <div class="linksRow">
