@@ -8,25 +8,20 @@
 
   <style>
     :root{
-      /* Merk (zelfde als recepten.html) */
       --brand:#E53D23;
       --brand-deep:#C4321C;
 
-      /* Dark-first basis */
       --bg-1:#0f0f10;
       --bg-2:#171314;
       --card:#1a1b1e;
-      --card-2:#141518;
       --text:#F2F2F3;
       --muted:#B9BBC1;
       --muted-2:#8E9097;
 
-      /* Styling tokens */
       --radius:24px;
       --btn-radius:18px;
       --shadow: 0 22px 70px rgba(0,0,0,.52);
 
-      /* Dikte van de "notenzak"-zijbanen */
       --side: clamp(22px, 5vw, 56px);
 
       --chip: rgba(255,255,255,.06);
@@ -49,7 +44,6 @@
       color-scheme: dark;
     }
 
-    /* Oranje strepen links/rechts (zelfde vibe als recepten.html) */
     body::before, body::after{
       content:"";
       position:fixed;
@@ -149,6 +143,8 @@
     .btn.primary{
       background: linear-gradient(180deg, rgba(229,61,35,.95), rgba(196,50,28,.95));
       border-color: rgba(0,0,0,.18);
+      color: #111;
+      font-weight: 900;
     }
 
     .hero{
@@ -234,8 +230,8 @@
       gap:8px;
       padding: 9px 12px;
       border-radius: 999px;
-      background: var(--chip);
-      border:1px solid var(--chip-border);
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
       color: var(--text);
       font-weight: 800;
       font-size: 13px;
@@ -275,17 +271,6 @@
       user-select:none;
     }
     .toggle input{ accent-color: var(--brand); }
-
-    select{
-      padding: 10px 12px;
-      border-radius: 999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      font-weight: 800;
-      cursor:pointer;
-      outline:none;
-    }
 
     .grid{
       margin-top: 16px;
@@ -388,14 +373,6 @@
     }
     .empty strong{ color: var(--text); }
 
-    .footnote{
-      margin-top: 18px;
-      color: var(--muted-2);
-      font-size: 12px;
-      line-height: 1.45;
-      opacity: .95;
-    }
-
     code{
       background: rgba(255,255,255,.06);
       padding:2px 6px;
@@ -407,8 +384,99 @@
 
     .hidden{ display:none !important; }
 
-    @media (prefers-reduced-motion: reduce){
-      *{ scroll-behavior:auto !important; transition:none !important; }
+    /* ---------- Multi-allergenen filter UI ---------- */
+    .allergenMulti{ position: relative; }
+
+    .allergenPanel{
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 18px;
+      background: rgba(15,15,16,.92);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 18px 60px rgba(0,0,0,.55);
+    }
+
+    .allergenPanelTop{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom: 10px;
+    }
+
+    .mode{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .modeBtn{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight: 900;
+      padding: 8px 10px;
+      border-radius: 999px;
+      cursor:pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .modeBtn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(229,61,35,.38);
+      background: rgba(229,61,35,.10);
+    }
+    .modeBtn.active{
+      background: rgba(229,61,35,.18);
+      border-color: rgba(229,61,35,.55);
+    }
+
+    .panelActions{
+      display:flex;
+      gap:8px;
+    }
+
+    .tinyBtn{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight: 900;
+      padding: 8px 10px;
+      border-radius: 999px;
+      cursor:pointer;
+    }
+
+    .allergenList{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    @media (max-width: 740px){
+      .allergenList{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 460px){
+      .allergenList{ grid-template-columns: 1fr; }
+    }
+
+    .chk{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      cursor:pointer;
+      user-select:none;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .chk input{ accent-color: var(--brand); }
+
+    .allergenPanelFoot{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12.5px;
     }
   </style>
 </head>
@@ -420,22 +488,20 @@
         <img src="logo.jpg" alt="Notenexpres logo" onerror="this.style.display='none'">
         <div style="min-width:0">
           <h1>Notenexpres – Allergenen</h1>
-          <p>Zoek producten en zie (indicatief) allergenen-info.</p>
+          <p>Zoek producten en filter op categorie en meerdere allergenen.</p>
         </div>
       </div>
 
       <nav class="nav" aria-label="Navigatie">
         <a class="btn" href="index.html">Home</a>
-        <a class="btn" href="recepten.html">Recepten</a>
-        <a class="btn primary" href="allergenen.html">Allergenen</a>
+        <a class="btn primary" href="recepten.html">Recepten</a>
       </nav>
     </header>
 
     <section class="hero">
       <h2>Allergenenoverzicht</h2>
       <p class="sub">
-        Zoek op productnaam, filter op categorie en (optioneel) op specifiek allergeen.
-        <br>Let op: <strong>etiket/verpakking blijft leidend</strong>.
+        Zoek op productnaam, filter op categorie en vink meerdere allergenen aan.
       </p>
 
       <div class="controls">
@@ -449,9 +515,7 @@
         </div>
       </div>
 
-      <div class="chips" id="chipbar" aria-label="Categorieën">
-        <!-- chips worden dynamisch gevuld -->
-      </div>
+      <div class="chips" id="chipbar" aria-label="Categorieën"></div>
 
       <div class="tools2" aria-label="Extra filters">
         <label class="toggle">
@@ -459,23 +523,37 @@
           Toon ook “zonder”
         </label>
 
-        <select id="allergenFilter" aria-label="Filter op allergeen">
-          <option value="alles">Filter op allergeen… (alles)</option>
-        </select>
+        <!-- Multi allergenen -->
+        <div class="allergenMulti">
+          <button class="btn" type="button" id="allergenBtn" aria-haspopup="dialog" aria-expanded="false">
+            Filter allergenen… <span id="allergenCount" style="opacity:.85">(alles)</span>
+          </button>
+
+          <div class="allergenPanel hidden" id="allergenPanel" role="dialog" aria-label="Kies allergenen">
+            <div class="allergenPanelTop">
+              <div class="mode">
+                <button type="button" class="modeBtn active" data-mode="bevatkan">Bevat of kan bevatten</button>
+                <button type="button" class="modeBtn" data-mode="bevat">Bevat</button>
+                <button type="button" class="modeBtn" data-mode="kan">Kan bevatten</button>
+              </div>
+              <div class="panelActions">
+                <button type="button" class="tinyBtn" id="allergenClear">Wis</button>
+                <button type="button" class="tinyBtn" id="allergenClose">Sluiten</button>
+              </div>
+            </div>
+
+            <div class="allergenList" id="allergenList"></div>
+
+            <div class="allergenPanelFoot">
+              Tip: je kunt meerdere allergenen aanvinken.
+            </div>
+          </div>
+        </div>
 
         <button id="resetBtn" class="btn" type="button">Reset filters</button>
       </div>
 
-      <div class="hr"></div>
-      <p class="footnote">
-        <strong>Beheer-tip:</strong> productdata pas je aan in <code>producten.js</code>.
-        Kleuren/logica: “bevat” = risico, “kan bevatten” = mogelijk, “zonder” = info.
-      </p>
-    </section>
-
-    <section class="grid" id="sectionsRoot" aria-label="Allergenen per categorie">
-      <!-- secties worden dynamisch gevuld -->
-    </section>
+    <section class="grid" id="sectionsRoot" aria-label="Allergenen per categorie"></section>
 
     <section class="empty" id="empty">
       <strong>Geen resultaten.</strong><br>
@@ -483,7 +561,6 @@
     </section>
   </main>
 
-  <!-- jouw bestaande data -->
   <script src="producten.js"></script>
 
   <script>
@@ -494,13 +571,23 @@
     const chipbar = document.getElementById('chipbar');
 
     const toggleZonder = document.getElementById('toggleZonder');
-    const allergenFilter = document.getElementById('allergenFilter');
     const sectionsRoot = document.getElementById('sectionsRoot');
     const empty = document.getElementById('empty');
 
+    // Multi allergenen UI
+    const allergenBtn   = document.getElementById('allergenBtn');
+    const allergenPanel = document.getElementById('allergenPanel');
+    const allergenList  = document.getElementById('allergenList');
+    const allergenCount = document.getElementById('allergenCount');
+    const allergenClear = document.getElementById('allergenClear');
+    const allergenClose = document.getElementById('allergenClose');
+
     let showZonder = false;
     let activeFilter = 'alles';
-    let activeAllergenFilter = "alles"; // "alles" of "bevat|Gluten" of "kan|Sesam" of "bevatkan|Pinda"
+
+    // Multi-select state
+    let allergenMode = "bevatkan";       // bevatkan | bevat | kan
+    let selectedAllergens = new Set();   // meerdere allergenen (OR)
 
     function normalize(s){
       return (s || '').toString().toLowerCase().trim()
@@ -571,28 +658,47 @@
       return Array.from(set).sort((a,b)=>a.localeCompare(b,"nl",{sensitivity:"base"}));
     }
 
-    function buildAllergenDropdown(){
-      const allergens = collectAllergens();
-      allergenFilter.innerHTML = `<option value="alles">Filter op allergeen… (alles)</option>`;
-
-      const mkOpt = (value, label) => `<option value="${value}">${label}</option>`;
-      if(allergens.length){
-        allergenFilter.insertAdjacentHTML("beforeend",
-          `<optgroup label="Bevat">` +
-          allergens.map(a => mkOpt("bevat|" + a, a)).join("") +
-          `</optgroup>`
-        );
-        allergenFilter.insertAdjacentHTML("beforeend",
-          `<optgroup label="Kan bevatten">` +
-          allergens.map(a => mkOpt("kan|" + a, a)).join("") +
-          `</optgroup>`
-        );
-        allergenFilter.insertAdjacentHTML("beforeend",
-          `<optgroup label="Bevat of kan bevatten">` +
-          allergens.map(a => mkOpt("bevatkan|" + a, a)).join("") +
-          `</optgroup>`
-        );
+    function updateAllergenCount(){
+      if(selectedAllergens.size === 0){
+        allergenCount.textContent = "(alles)";
+      } else {
+        allergenCount.textContent = `(${selectedAllergens.size} gekozen)`;
       }
+    }
+
+    function buildAllergenMulti(){
+      const allergens = collectAllergens();
+      allergenList.innerHTML = "";
+
+      for(const a of allergens){
+        const id = "alg_" + normalize(a).replace(/\s+/g,"_");
+        const label = document.createElement("label");
+        label.className = "chk";
+        label.innerHTML = `
+          <input type="checkbox" value="${escapeHtml(a)}" id="${id}">
+          <span>${escapeHtml(a)}</span>
+        `;
+        const input = label.querySelector("input");
+        input.addEventListener("change", () => {
+          const val = input.value;
+          if(input.checked) selectedAllergens.add(val);
+          else selectedAllergens.delete(val);
+          updateAllergenCount();
+          applyFilters();
+        });
+        allergenList.appendChild(label);
+      }
+
+      document.querySelectorAll(".modeBtn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".modeBtn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          allergenMode = btn.dataset.mode;
+          applyFilters();
+        });
+      });
+
+      updateAllergenCount();
     }
 
     function renderAllSections(){
@@ -657,11 +763,6 @@
     function applyFilters(){
       const q = normalize(searchInput.value);
 
-      const af = (activeAllergenFilter || "alles");
-      const [afTypeRaw, ...afRest] = af.split("|");
-      const afType = afTypeRaw; // alles | bevat | kan | bevatkan
-      const afValue = normalize(afRest.join("|") || "");
-
       const sections = Array.from(document.querySelectorAll('.sectionCard'));
       let visibleCount = 0;
 
@@ -675,13 +776,24 @@
           const matchesText = !q || hay.includes(q);
           const matchesCat  = (activeFilter === 'alles') || (cat === activeFilter);
 
+          // Multi-select allergenen filter
           const attrName =
-            (afType === 'bevat' ? 'data-bevat' :
-             afType === 'kan' ? 'data-kan' :
-             afType === 'bevatkan' ? 'data-bevatkan' : 'data-bevatkan');
+            (allergenMode === 'bevat' ? 'data-bevat' :
+             allergenMode === 'kan' ? 'data-kan' :
+             'data-bevatkan');
 
           const draagt = normalize(item.getAttribute(attrName));
-          const matchesAllergen = (afType === 'alles') || !afValue || draagt.includes(afValue);
+
+         // AND-filter: als niets gekozen -> alles toegestaan
+let matchesAllergen = true;
+if(selectedAllergens.size > 0){
+  for(const a of selectedAllergens){
+    if(!draagt.includes(normalize(a))){
+      matchesAllergen = false;
+      break;
+    }
+  }
+}
 
           const show = matchesText && matchesCat && matchesAllergen;
           item.classList.toggle('hidden', !show);
@@ -711,18 +823,44 @@
       applyFilters();
     });
 
-    allergenFilter.addEventListener("change", () => {
-      activeAllergenFilter = allergenFilter.value || "alles";
+    // Panel open/close
+    allergenBtn.addEventListener("click", () => {
+      const open = !allergenPanel.classList.contains("hidden");
+      allergenPanel.classList.toggle("hidden", open);
+      allergenBtn.setAttribute("aria-expanded", String(!open));
+    });
+
+    allergenClose.addEventListener("click", () => {
+      allergenPanel.classList.add("hidden");
+      allergenBtn.setAttribute("aria-expanded", "false");
+    });
+
+    allergenClear.addEventListener("click", () => {
+      selectedAllergens.clear();
+      allergenList.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+      updateAllergenCount();
       applyFilters();
     });
 
+    // Reset alles
     resetBtn.addEventListener("click", () => {
       searchInput.value = "";
       showZonder = false;
       toggleZonder.checked = false;
       activeFilter = "alles";
-      activeAllergenFilter = "alles";
-      allergenFilter.value = "alles";
+
+      allergenMode = "bevatkan";
+      selectedAllergens.clear();
+      allergenList.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+      updateAllergenCount();
+
+      document.querySelectorAll(".modeBtn").forEach(b => b.classList.remove("active"));
+      const defBtn = document.querySelector('.modeBtn[data-mode="bevatkan"]');
+      if(defBtn) defBtn.classList.add("active");
+
+      allergenPanel.classList.add("hidden");
+      allergenBtn.setAttribute("aria-expanded", "false");
+
       buildChips();
       renderAllSections();
       applyFilters();
@@ -731,8 +869,9 @@
 
     window.addEventListener("keydown", (e) => {
       if(e.key === "Escape"){
-        searchInput.value = "";
-        applyFilters();
+        // sluit panel als open
+        allergenPanel.classList.add("hidden");
+        allergenBtn.setAttribute("aria-expanded", "false");
       }
       if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k"){
         e.preventDefault();
@@ -742,7 +881,7 @@
 
     // Init
     buildChips();
-    buildAllergenDropdown();
+    buildAllergenMulti();
     renderAllSections();
     applyFilters();
   </script>

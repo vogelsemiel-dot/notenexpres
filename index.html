@@ -15,17 +15,11 @@
       --bg-2:#171314;
       --text:#F2F2F3;
       --muted:#B9BBC1;
-      --muted-2:#8E9097;
 
       --radius:24px;
       --btn-radius:18px;
       --shadow: 0 22px 70px rgba(0,0,0,.52);
-
       --side: clamp(22px, 5vw, 56px);
-
-      --chip: rgba(255,255,255,.06);
-      --chip-border: rgba(255,255,255,.10);
-      --line: rgba(229,61,35,.16);
     }
 
     *{ box-sizing:border-box; }
@@ -38,27 +32,15 @@
       background:
         radial-gradient(900px 520px at 50% 18%, rgba(229,61,35,.18), rgba(229,61,35,0) 60%),
         linear-gradient(180deg, var(--bg-2), var(--bg-1) 72%);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      color-scheme: dark;
     }
 
-    /* Oranje strepen links/rechts */
     body::before, body::after{
       content:"";
       position:fixed;
       top:0; bottom:0;
       width:var(--side);
+      background: linear-gradient(180deg, var(--brand), var(--brand-deep));
       z-index:0;
-      background:
-        linear-gradient(180deg,
-          rgba(255,255,255,.10) 0%,
-          rgba(255,255,255,0) 10%,
-          rgba(0,0,0,.10) 100%),
-        linear-gradient(180deg, var(--brand), var(--brand-deep));
-      box-shadow:
-        inset 0 0 0 1px rgba(0,0,0,.22),
-        inset 0 12px 42px rgba(0,0,0,.22);
     }
     body::before{ left:0; }
     body::after{ right:0; }
@@ -66,264 +48,130 @@
     .wrap{
       position:relative;
       z-index:1;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 26px 16px 54px;
+      max-width:1080px;
+      margin:0 auto;
+      padding:26px 16px 54px;
     }
 
-    /* Topbar (zelfde vibe als recepten/allergenen) */
     .topbar{
       display:flex;
       align-items:center;
-      justify-content:space-between;
       gap:12px;
-      margin-bottom: 18px;
+      margin-bottom:18px;
     }
 
     .brandRow{
       display:flex;
       align-items:center;
       gap:12px;
-      min-width:0;
     }
+
     .brandRow img{
       width:46px;
       height:46px;
-      border-radius: 14px;
-      object-fit: cover;
-      box-shadow: 0 10px 26px rgba(0,0,0,.35);
-      border:1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.06);
-    }
-    .brandRow h1{
-      font-size: 18px;
-      margin:0;
-      line-height: 1.1;
-      letter-spacing: .2px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow: ellipsis;
-    }
-    .brandRow p{
-      margin:4px 0 0;
-      font-size: 12.5px;
-      color: var(--muted);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow: ellipsis;
+      border-radius:14px;
     }
 
-    .nav{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+    .brandRow h1{
+      margin:0;
+      font-size:18px;
     }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 14px;
-      border-radius: var(--btn-radius);
-      color: var(--text);
-      text-decoration:none;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: 0 10px 34px rgba(0,0,0,.22);
-      transition: transform .12s ease, border-color .12s ease, background .12s ease;
-      font-weight: 700;
-      font-size: 13.5px;
-      letter-spacing: .1px;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(229,61,35,.45);
-      background: rgba(229,61,35,.10);
-    }
-    .btn.primary{
-      background: linear-gradient(180deg, rgba(229,61,35,.95), rgba(196,50,28,.95));
-      border-color: rgba(0,0,0,.18);
-      color: #111;
-      font-weight: 900;
+
+    .brandRow p{
+      margin:4px 0 0;
+      font-size:12.5px;
+      color:var(--muted);
     }
 
     .hero{
-      margin-top: 12px;
-      padding: 18px;
-      border-radius: var(--radius);
+      padding:18px;
+      border-radius:24px;
       background:
         linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)),
         radial-gradient(820px 320px at 10% 10%, rgba(229,61,35,.22), transparent 60%);
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: var(--shadow);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
     }
+
     .hero h2{
       margin:0 0 8px;
-      font-size: 20px;
-      letter-spacing:.2px;
+      font-size:20px;
     }
-    .hero .sub{
+
+    .hero p{
       margin:0;
-      color: var(--muted);
-      font-size: 13.5px;
-      line-height: 1.35;
+      color:var(--muted);
+      font-size:14px;
     }
 
-    .hr{
-      margin-top: 12px;
-      height:1px;
-      background: linear-gradient(90deg, transparent, var(--line), transparent);
-    }
-
-    /* Actie-cards (zelfde “luxe” kaartstijl) */
     .grid{
-      margin-top: 16px;
+      margin-top:16px;
       display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-    @media (max-width: 820px){ .grid{ grid-template-columns: 1fr; } }
-    @media (max-width: 900px){
-      .nav{ justify-content:flex-start; }
-      .topbar{ flex-direction: column; align-items: stretch; }
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
     }
 
     .card{
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: 0 16px 55px rgba(0,0,0,.34);
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
+      border-radius:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.10);
+      padding:14px;
     }
 
-    .card .head{
-      padding: 14px 14px 12px;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      background: radial-gradient(520px 190px at 15% 0%, rgba(229,61,35,.18), transparent 60%);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .card .title{
-      margin:0;
-      font-size: 16px;
-      letter-spacing: .15px;
-      line-height: 1.2;
-      font-weight: 900;
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(229,61,35,.14);
-      border: 1px solid rgba(229,61,35,.34);
-      color: var(--text);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing:.1px;
-      white-space:nowrap;
-    }
-    .card .body{
-      padding: 12px 14px 14px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-    .desc{
-      margin:0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.35;
+    .card h3{
+      margin:0 0 6px;
+      font-size:16px;
     }
 
-    .action{
-      margin-top: 6px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
+    .card p{
+      margin:0 0 10px;
+      color:var(--muted);
+      font-size:13px;
     }
 
     .biglink{
-      width:100%;
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:12px;
-      padding: 14px 14px;
-      border-radius: 18px;
+      padding:14px;
+      border-radius:18px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--text);
       text-decoration:none;
-      color: var(--text);
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.10);
-      transition: transform .12s ease, border-color .12s ease, background .12s ease;
-      font-weight: 900;
-      letter-spacing:.1px;
-    }
-    .biglink:hover{
-      transform: translateY(-1px);
-      border-color: rgba(229,61,35,.45);
-      background: rgba(229,61,35,.10);
-    }
-    .biglink.primary{
-      background:
-        radial-gradient(600px 220px at 50% 0%, rgba(255,255,255,.22), rgba(255,255,255,0) 55%),
-        linear-gradient(180deg, rgba(229,61,35,.95), rgba(196,50,28,.95));
-      border-color: rgba(0,0,0,.18);
-      color:#111;
-    }
-    .biglink.primary:hover{
-      background:
-        radial-gradient(600px 220px at 50% 0%, rgba(255,255,255,.26), rgba(255,255,255,0) 55%),
-        linear-gradient(180deg, rgba(229,61,35,1), rgba(196,50,28,1));
+      font-weight:800;
     }
 
-    .icon{
-      font-size: 20px;
-      line-height:1;
-      transform: translateY(-.5px);
-    }
-    .arrow{
-      opacity:.9;
-      font-size: 18px;
+    .linksBar{
+      margin-top:16px;
+      padding:14px;
+      border-radius:24px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
     }
 
-    .footnote{
-      margin-top: 18px;
-      color: var(--muted-2);
-      font-size: 12px;
-      line-height: 1.45;
-      opacity: .95;
-    }
-
-    /* Social row als compacte “chips” */
-    .socialRow{
+    .linksRow{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
     }
-    .socialBtn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
+
+    .chipLink{
+      padding:10px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--text);
       text-decoration:none;
-      font-weight: 900;
-      font-size: 13px;
-      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      font-weight:800;
+      display:flex;
+      align-items:center;
+      gap:8px;
     }
-    .socialBtn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(229,61,35,.45);
-      background: rgba(229,61,35,.10);
+
+    .svgIcon{
+      width:18px;
+      height:18px;
+      fill:currentColor;
     }
   </style>
 </head>
@@ -332,95 +180,55 @@
   <main class="wrap">
     <header class="topbar">
       <div class="brandRow">
-        <img src="logo.jpg" alt="Notenexpres logo" onerror="this.style.display='none'">
-        <div style="min-width:0">
+        <img src="logo.jpg" alt="Notenexpres logo">
+        <div>
           <h1>Notenexpres – Start</h1>
-          <p>Allergenen, recepten en links – snel via QR.</p>
+          <p>Snel checken via QR: allergenen & inspiratie.</p>
         </div>
       </div>
-
-      <nav class="nav" aria-label="Navigatie">
-        <a class="btn" href="recepten.html">Recepten</a>
-        <a class="btn" href="allergenen.html">Allergenen</a>
-        <a class="btn primary" href="index.html">Home</a>
-      </nav>
     </header>
 
     <section class="hero">
-      <h2>Welkom 👋</h2>
-      <p class="sub">
-        Kies waar je heen wilt. Alles is gemaakt om snel te gebruiken op je telefoon (QR).
-      </p>
-      <div class="hr"></div>
-      <p class="footnote">
-        Tip: Recepten geeft inspiratie met noten/fruit; Allergenen is het snelle check-overzicht.
-      </p>
+      <h2>Welkom bij Notenexpres 👋</h2>
+      <p>Zin in iets lekkers? Ontdek onze recepten of check direct de allergenen per product.</p>
     </section>
 
-    <section class="grid" aria-label="Snelkoppelingen">
-      <article class="card">
-        <div class="head">
-          <h3 class="title">Recepten</h3>
-          <span class="pill">🍴 inspiratie</span>
-        </div>
-        <div class="body">
-          <p class="desc">Zoek, filter per categorie en ontdek ideeën met noten, zaden en gedroogd fruit.</p>
-          <a class="biglink primary" href="recepten.html">
-            <span><span class="icon">🍴</span> Naar recepten</span>
-            <span class="arrow">›</span>
-          </a>
-        </div>
-      </article>
+    <section class="grid">
+      <div class="card">
+        <h3>Recepten</h3>
+        <p>Inspiratie met noten, zaden en gedroogd fruit.</p>
+        <a class="biglink" href="recepten.html">Naar recepten →</a>
+      </div>
 
-      <article class="card">
-        <div class="head">
-          <h3 class="title">Allergenen</h3>
-          <span class="pill">⚠️ check</span>
-        </div>
-        <div class="body">
-          <p class="desc">Zoek producten, filter op categorie en (optioneel) op specifiek allergeen.</p>
-          <a class="biglink" href="allergenen.html">
-            <span><span class="icon">⚠️</span> Naar allergenen</span>
-            <span class="arrow">›</span>
-          </a>
-        </div>
-      </article>
+      <div class="card">
+        <h3>Allergenen</h3>
+        <p>Snel overzicht per product en categorie.</p>
+        <a class="biglink" href="allergenen.html">Naar allergenen →</a>
+      </div>
+    </section>
 
-      <article class="card">
-        <div class="head">
-          <h3 class="title">Officiële website</h3>
-          <span class="pill">🌐 extern</span>
-        </div>
-        <div class="body">
-          <p class="desc">Ga naar de officiële site van Notenexpres.</p>
-          <a class="biglink" href="https://www.notenexpres.nl/" target="_blank" rel="noopener noreferrer">
-            <span><span class="icon">🌐</span> notenexpres.nl</span>
-            <span class="arrow">↗</span>
-          </a>
-        </div>
-      </article>
+    <section class="linksBar">
+      <div class="linksRow">
+        <a class="chipLink" href="https://www.notenexpres.nl/" target="_blank">🌐 Website</a>
 
-      <article class="card">
-        <div class="head">
-          <h3 class="title">Socials</h3>
-          <span class="pill">✨ volg</span>
-        </div>
-        <div class="body">
-          <p class="desc">Volg Notenexpres op social media.</p>
-          <div class="socialRow">
-            <a class="socialBtn"
-               href="https://www.instagram.com/notenexpres?igsh=MWQ1aXp6cnpuY3U3ZQ%3D%3D"
-               target="_blank" rel="noopener noreferrer">
-              <span class="icon">📸</span> Instagram <span class="arrow">↗</span>
-            </a>
-            <a class="socialBtn"
-               href="https://www.facebook.com/share/1ALKrxz3vY/"
-               target="_blank" rel="noopener noreferrer">
-              <span class="icon">📘</span> Facebook <span class="arrow">↗</span>
-            </a>
-          </div>
-        </div>
-      </article>
+        <a class="chipLink"
+           href="https://www.instagram.com/notenexpres?igsh=MWQ1aXp6cnpuY3U3ZQ%3D%3D"
+           target="_blank">
+          <svg class="svgIcon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 7.3A2.8 2.8 0 1 1 14.8 12 2.81 2.81 0 0 1 12 14.8zM17.8 6.3a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/>
+          </svg>
+          Instagram
+        </a>
+
+        <a class="chipLink"
+           href="https://www.facebook.com/share/1ALKrxz3vY/"
+           target="_blank">
+          <svg class="svgIcon" viewBox="0 0 24 24">
+            <path d="M13.5 22v-8h2.7l.8-3h-3.5V9.1c0-.9.3-1.6 1.7-1.6H17V4.8c-.3 0-1.5-.1-2.9-.1-2.8 0-4.7 1.7-4.7 4.8V11H6v3h3.4v8h4.1z"/>
+          </svg>
+          Facebook
+        </a>
+      </div>
     </section>
   </main>
 </body>
