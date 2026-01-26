@@ -3,190 +3,504 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
   <title>Notenexpres – Allergenen</title>
 
   <style>
     :root{
+      /* Merk (zelfde als recepten.html) */
       --brand:#E53D23;
-      --text:#1b1b1b;
-      --muted:#555;
-      --shadow:0 16px 34px rgba(0,0,0,.10);
-      --radius:22px;
-      --side:22px;
+      --brand-deep:#C4321C;
+
+      /* Dark-first basis */
+      --bg-1:#0f0f10;
+      --bg-2:#171314;
+      --card:#1a1b1e;
+      --card-2:#141518;
+      --text:#F2F2F3;
+      --muted:#B9BBC1;
+      --muted-2:#8E9097;
+
+      /* Styling tokens */
+      --radius:24px;
+      --btn-radius:18px;
+      --shadow: 0 22px 70px rgba(0,0,0,.52);
+
+      /* Dikte van de "notenzak"-zijbanen */
+      --side: clamp(22px, 5vw, 56px);
+
+      --chip: rgba(255,255,255,.06);
+      --chip-border: rgba(255,255,255,.10);
+      --line: rgba(229,61,35,.16);
     }
+
     *{ box-sizing:border-box; }
-    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#fff; color:var(--text); min-height:100vh; }
-    body::before, body::after{ content:""; position:fixed; top:0; bottom:0; width:var(--side); background:var(--brand); z-index:0; }
-    body::before{ left:0; } body::after{ right:0; }
 
-    .wrap{ position:relative; z-index:1; width:min(980px, calc(100% - (var(--side) * 2) - 24px)); margin:0 auto; padding:18px 0 46px; }
-    .card{ background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid rgba(0,0,0,.07); padding:18px 18px 22px; }
-
-    .top{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:10px; }
-    .back{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 12px; border-radius:14px; text-decoration:none;
-      color:var(--brand); background:#fff; border:2px solid rgba(229,61,35,.28);
-      font-weight:800;
-    }
-    .back:hover{ background:#fff3ef; border-color:rgba(229,61,35,.45); }
-    .logo{ height:40px; width:auto; }
-
-    h1{ margin:10px 0 6px; font-size:clamp(26px,5.4vw,40px); }
-    .sub{ margin:0 0 14px; color:var(--muted); font-size:clamp(14px,3.2vw,17px); }
-
-    .warnbox{
-      background:#fff3ef;
-      border:1px solid rgba(229,61,35,.22);
-      border-left:6px solid var(--brand);
-      border-radius:18px;
-      padding:12px 14px;
-      margin: 10px 0 16px;
-      color:#4a2a24;
-      line-height:1.35;
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      min-height:100vh;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 50% 18%, rgba(229,61,35,.18), rgba(229,61,35,0) 60%),
+        linear-gradient(180deg, var(--bg-2), var(--bg-1) 72%);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      color-scheme: dark;
     }
 
-    .tools{ display:flex; gap:10px; flex-wrap:wrap; margin: 10px 0 16px; align-items:center; }
-    .search{
-      flex: 1 1 260px;
+    /* Oranje strepen links/rechts (zelfde vibe als recepten.html) */
+    body::before, body::after{
+      content:"";
+      position:fixed;
+      top:0; bottom:0;
+      width:var(--side);
+      z-index:0;
+      background:
+        linear-gradient(180deg,
+          rgba(255,255,255,.10) 0%,
+          rgba(255,255,255,0) 10%,
+          rgba(0,0,0,.10) 100%),
+        linear-gradient(180deg, var(--brand), var(--brand-deep));
+      box-shadow:
+        inset 0 0 0 1px rgba(0,0,0,.22),
+        inset 0 12px 42px rgba(0,0,0,.22);
+    }
+    body::before{ left:0; }
+    body::after{ right:0; }
+
+    .wrap{
+      position:relative;
+      z-index:1;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 26px 16px 54px;
+    }
+
+    .topbar{
       display:flex;
       align-items:center;
-      gap:10px;
-      border:2px solid rgba(229,61,35,.25);
-      border-radius:16px;
-      padding:12px 12px;
-      background:#fff;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 18px;
     }
-    .search input{ border:none; outline:none; width:100%; font-size:16px; }
 
-    .chipbar{ display:flex; flex-wrap:wrap; gap:8px; }
-    .chip{
-      border:1px solid rgba(0,0,0,.10);
-      border-radius:999px;
-      padding:8px 10px;
-      font-weight:800;
-      font-size:13px;
-      background:#fff;
-      color:var(--text);
+    .brandRow{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+    .brandRow img{
+      width:46px;
+      height:46px;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: 0 10px 26px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.06);
+    }
+    .brandRow h1{
+      font-size: 18px;
+      margin:0;
+      line-height: 1.1;
+      letter-spacing: .2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    .brandRow p{
+      margin:4px 0 0;
+      font-size: 12.5px;
+      color: var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: var(--btn-radius);
+      color: var(--text);
+      text-decoration:none;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 10px 34px rgba(0,0,0,.22);
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      font-weight: 700;
+      font-size: 13.5px;
+      letter-spacing: .1px;
       cursor:pointer;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(229,61,35,.45);
+      background: rgba(229,61,35,.10);
+    }
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(229,61,35,.95), rgba(196,50,28,.95));
+      border-color: rgba(0,0,0,.18);
+    }
+
+    .hero{
+      margin-top: 12px;
+      padding: 18px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)),
+        radial-gradient(820px 320px at 10% 10%, rgba(229,61,35,.22), transparent 60%);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+    }
+    .hero h2{
+      margin:0 0 8px;
+      font-size: 20px;
+      letter-spacing:.2px;
+    }
+    .hero .sub{
+      margin:0;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.35;
+    }
+
+    .controls{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 12px;
+      align-items: start;
+    }
+    @media (max-width: 900px){
+      .controls{ grid-template-columns: 1fr; }
+      .nav{ justify-content:flex-start; }
+      .topbar{ flex-direction: column; align-items: stretch; }
+    }
+
+    .search{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .search input{
+      width:100%;
+      border:0;
+      outline:0;
+      background: transparent;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .search input::placeholder{ color: rgba(185,187,193,.72); }
+
+    .metaBox{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .metaBox strong{ color: var(--text); font-weight: 800; }
+
+    .chips{
+      margin-top: 12px;
+      display:flex;
+      gap:10px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+    .chip{
+      user-select:none;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: var(--chip);
+      border:1px solid var(--chip-border);
+      color: var(--text);
+      font-weight: 800;
+      font-size: 13px;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .chip:hover{ transform: translateY(-1px); border-color: rgba(229,61,35,.38); }
+    .chip.active{
+      background: rgba(229,61,35,.18);
+      border-color: rgba(229,61,35,.55);
+    }
+
+    .hr{
+      margin-top: 12px;
+      height:1px;
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+    }
+
+    .tools2{
+      margin-top: 12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .toggle{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 13px;
       user-select:none;
     }
-    .chip.active{
-      border-color: rgba(229,61,35,.45);
-      background:#fff3ef;
-      color:#7a1d10;
-    }
+    .toggle input{ accent-color: var(--brand); }
 
-    .resultRow{ display:flex; justify-content:space-between; align-items:center; gap:10px; margin: 0 0 8px; color:#666; font-size:12.5px; }
-    .clearBtn{
-      border:none;
-      background:#fff3ef;
-      border:1px solid rgba(229,61,35,.22);
-      color:#7a1d10;
-      font-weight:900;
-      padding:8px 10px;
-      border-radius:999px;
+    select{
+      padding: 10px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight: 800;
       cursor:pointer;
+      outline:none;
     }
-    .clearBtn:hover{ background:#ffe7df; }
 
-    .section{ border:1px solid rgba(0,0,0,.08); border-radius:18px; padding:14px; margin:14px 0; }
-    .section h2{ margin:0 0 10px; font-size:20px; display:flex; gap:10px; align-items:center; }
+    .grid{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 740px){ .grid{ grid-template-columns: 1fr; } }
+
+    .sectionCard{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 16px 55px rgba(0,0,0,.34);
+      overflow:hidden;
+    }
+    .sectionHead{
+      padding: 14px 14px 12px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      background: radial-gradient(520px 190px at 15% 0%, rgba(229,61,35,.18), transparent 60%);
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .sectionHead h3{
+      margin:0;
+      font-size: 16px;
+      letter-spacing:.15px;
+      line-height:1.2;
+    }
     .pill{
-      display:inline-block;
-      font-size:12px;
-      font-weight:800;
-      padding:6px 10px;
-      border-radius:999px;
-      background:#fff3ef;
-      color:#7a1d10;
-      border:1px solid rgba(229,61,35,.22);
+      display:inline-flex;
+      align-items:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(229,61,35,.14);
+      border: 1px solid rgba(229,61,35,.34);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing:.1px;
+      white-space:nowrap;
+    }
+    .sectionBody{
+      padding: 12px 14px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
     }
 
-    .list{ display:grid; gap:10px; }
-    @media (min-width: 820px){ .list{ grid-template-columns: 1fr 1fr; } }
+    .item{
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 12px 12px;
+    }
+    .name{
+      font-weight: 900;
+      letter-spacing:.1px;
+    }
+    .submeta{
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .tags{
+      margin-top: 10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing:.1px;
+    }
+    .tag.warn{
+      background: rgba(229,61,35,.14);
+      border-color: rgba(229,61,35,.34);
+    }
 
-    .item{ border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:12px 12px; background:#fff; }
-    .name{ font-weight:900; }
-    .meta{ font-size:13px; color:var(--muted); margin-top:4px; }
-    .tags{ margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; }
-    .tag{ font-size:12px; padding:6px 10px; border-radius:999px; background:#f6f6f6; border:1px solid rgba(0,0,0,.08); color:#333; font-weight:800; }
-    .tag.warn{ background:#fff3ef; border-color: rgba(229,61,35,.22); color:#7a1d10; }
+    .empty{
+      display:none;
+      margin-top: 16px;
+      padding: 18px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      border:1px dashed rgba(255,255,255,.16);
+      color: var(--muted);
+    }
+    .empty strong{ color: var(--text); }
 
-    .footerNote{ margin-top: 14px; font-size: 12.5px; color:#666; line-height:1.35; }
+    .footnote{
+      margin-top: 18px;
+      color: var(--muted-2);
+      font-size: 12px;
+      line-height: 1.45;
+      opacity: .95;
+    }
+
+    code{
+      background: rgba(255,255,255,.06);
+      padding:2px 6px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.10);
+      color: var(--text);
+      font-weight: 800;
+    }
 
     .hidden{ display:none !important; }
-    @media (max-width:360px){ :root{ --side:16px; } }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ scroll-behavior:auto !important; transition:none !important; }
+    }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="card">
-      <div class="top">
-        <a class="back" href="index.html">← Terug</a>
-        <img class="logo" src="logo.jpg" alt="Notenexpres logo">
-      </div>
-
-      <h1>Allergenen</h1>
-      <p class="sub">Zoek een product en zie direct de allergenen-status. (Demo – etiket blijft leidend.)</p>
-
-      <div class="tools">
-        <div class="search">
-          🔎 <input id="searchInput" type="text" placeholder="Zoek product (bijv. cashew, cranberry, salademix)..." />
-        </div>
-
-        <div class="chipbar" id="chipbar">
-          <!-- chips worden dynamisch gevuld -->
-        </div>
-
-        <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:8px;">
-          <label style="display:flex; gap:8px; align-items:center; font-weight:800; font-size:13px; color:#333; user-select:none;">
-            <input id="toggleZonder" type="checkbox" />
-            Toon ook “zonder”
-          </label>
-
-          <select id="allergenFilter" style="padding:10px 12px; border-radius:14px; border:2px solid rgba(229,61,35,.25); font-weight:800; background:#fff; color:#333; cursor:pointer;">
-            <option value="alles">Filter op allergeen… (alles)</option>
-          </select>
+  <main class="wrap">
+    <header class="topbar">
+      <div class="brandRow">
+        <img src="logo.jpg" alt="Notenexpres logo" onerror="this.style.display='none'">
+        <div style="min-width:0">
+          <h1>Notenexpres – Allergenen</h1>
+          <p>Zoek producten en zie (indicatief) allergenen-info.</p>
         </div>
       </div>
 
-      <div class="resultRow">
-        <div id="resultCount">—</div>
-        <button class="clearBtn" id="clearBtn" type="button">Wis zoekopdracht</button>
+      <nav class="nav" aria-label="Navigatie">
+        <a class="btn" href="index.html">Home</a>
+        <a class="btn" href="recepten.html">Recepten</a>
+        <a class="btn primary" href="allergenen.html">Allergenen</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>Allergenenoverzicht</h2>
+      <p class="sub">
+        Zoek op productnaam, filter op categorie en (optioneel) op specifiek allergeen.
+        <br>Let op: <strong>etiket/verpakking blijft leidend</strong>.
+      </p>
+
+      <div class="controls">
+        <div class="search" role="search" aria-label="Zoeken in allergenenlijst">
+          <span aria-hidden="true">🔎</span>
+          <input id="searchInput" type="search" placeholder="Zoek product (bijv. cashew, cranberry, salademix)…" autocomplete="off" />
+        </div>
+        <div class="metaBox">
+          <div><strong id="resultCount">0</strong> product(en) zichtbaar</div>
+          <button id="clearBtn" class="btn" type="button" style="padding:10px 12px;">Wis zoeken</button>
+        </div>
       </div>
 
-      <div id="sectionsRoot"></div>
-
-      <div class="footerNote">
-        <strong>Beheer-tip:</strong> pas producten aan in <code>producten.js</code>.
-        <br>
-        <strong>Kleuren uit Excel:</strong> groen = <b>zonder</b>, geel = <b>kan bevatten</b>, rood = <b>bevat</b>.
+      <div class="chips" id="chipbar" aria-label="Categorieën">
+        <!-- chips worden dynamisch gevuld -->
       </div>
 
-    </div>
-  </div>
+      <div class="tools2" aria-label="Extra filters">
+        <label class="toggle">
+          <input id="toggleZonder" type="checkbox" />
+          Toon ook “zonder”
+        </label>
 
+        <select id="allergenFilter" aria-label="Filter op allergeen">
+          <option value="alles">Filter op allergeen… (alles)</option>
+        </select>
+
+        <button id="resetBtn" class="btn" type="button">Reset filters</button>
+      </div>
+
+      <div class="hr"></div>
+      <p class="footnote">
+        <strong>Beheer-tip:</strong> productdata pas je aan in <code>producten.js</code>.
+        Kleuren/logica: “bevat” = risico, “kan bevatten” = mogelijk, “zonder” = info.
+      </p>
+    </section>
+
+    <section class="grid" id="sectionsRoot" aria-label="Allergenen per categorie">
+      <!-- secties worden dynamisch gevuld -->
+    </section>
+
+    <section class="empty" id="empty">
+      <strong>Geen resultaten.</strong><br>
+      Probeer een andere zoekterm of zet filters uit.
+    </section>
+  </main>
+
+  <!-- jouw bestaande data -->
   <script src="producten.js"></script>
 
   <script>
     const searchInput = document.getElementById('searchInput');
     const clearBtn = document.getElementById('clearBtn');
+    const resetBtn = document.getElementById('resetBtn');
     const resultCount = document.getElementById('resultCount');
     const chipbar = document.getElementById('chipbar');
 
     const toggleZonder = document.getElementById('toggleZonder');
     const allergenFilter = document.getElementById('allergenFilter');
-
-    // Extra filters
-    let showZonder = false;
-    // allergenFilter value format: "alles" or "bevat|Gluten" or "kan|Pinda’s" or "bevatkan|Sesam"
-    let activeAllergenFilter = "alles";
-
     const sectionsRoot = document.getElementById('sectionsRoot');
+    const empty = document.getElementById('empty');
 
+    let showZonder = false;
     let activeFilter = 'alles';
+    let activeAllergenFilter = "alles"; // "alles" of "bevat|Gluten" of "kan|Sesam" of "bevatkan|Pinda"
 
     function normalize(s){
       return (s || '').toString().toLowerCase().trim()
@@ -222,32 +536,29 @@
 
     function buildChips(){
       chipbar.innerHTML = "";
+
       const keys = Object.keys(PRODUCTEN_PER_CATEGORIE || {});
-      const allChip = document.createElement("div");
-      allChip.className = "chip" + (activeFilter === "alles" ? " active" : "");
-      allChip.dataset.filter = "alles";
-      allChip.textContent = "Alles";
-      chipbar.appendChild(allChip);
-
-      for (const k of keys){
-        const chip = document.createElement("div");
-        chip.className = "chip" + (activeFilter === k ? " active" : "");
-        chip.dataset.filter = k;
-        chip.textContent = getCategorieTitel(k);
-        chipbar.appendChild(chip);
-      }
-
-      Array.from(chipbar.querySelectorAll(".chip")).forEach(chip => {
-        chip.addEventListener("click", () => {
-          Array.from(chipbar.querySelectorAll(".chip")).forEach(c => c.classList.remove("active"));
-          chip.classList.add("active");
-          activeFilter = chip.dataset.filter;
+      const mkChip = (key, label) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "chip" + (activeFilter === key ? " active" : "");
+        b.dataset.filter = key;
+        b.textContent = label;
+        b.addEventListener("click", () => {
+          activeFilter = key;
+          Array.from(chipbar.querySelectorAll(".chip")).forEach(x => x.classList.remove("active"));
+          b.classList.add("active");
           applyFilters();
         });
-      });
+        chipbar.appendChild(b);
+      };
+
+      mkChip("alles", "Alles");
+      for(const k of keys){
+        mkChip(k, getCategorieTitel(k));
+      }
     }
 
-    
     function collectAllergens(){
       const set = new Set();
       const keys = Object.keys(PRODUCTEN_PER_CATEGORIE || {});
@@ -262,20 +573,29 @@
 
     function buildAllergenDropdown(){
       const allergens = collectAllergens();
-      allergenFilter.innerHTML = "";
-      allergenFilter.insertAdjacentHTML("beforeend", `<option value="alles">Filter op allergeen… (alles)</option>`);
+      allergenFilter.innerHTML = `<option value="alles">Filter op allergeen… (alles)</option>`;
 
       const mkOpt = (value, label) => `<option value="${value}">${label}</option>`;
-
-      if (allergens.length){
-        allergenFilter.insertAdjacentHTML("beforeend", `<optgroup label="Bevat">` + allergens.map(a => mkOpt("bevat|" + a, a)).join("") + `</optgroup>`);
-        allergenFilter.insertAdjacentHTML("beforeend", `<optgroup label="Kan bevatten">` + allergens.map(a => mkOpt("kan|" + a, a)).join("") + `</optgroup>`);
-        allergenFilter.insertAdjacentHTML("beforeend", `<optgroup label="Bevat of kan bevatten">` + allergens.map(a => mkOpt("bevatkan|" + a, a)).join("") + `</optgroup>`);
+      if(allergens.length){
+        allergenFilter.insertAdjacentHTML("beforeend",
+          `<optgroup label="Bevat">` +
+          allergens.map(a => mkOpt("bevat|" + a, a)).join("") +
+          `</optgroup>`
+        );
+        allergenFilter.insertAdjacentHTML("beforeend",
+          `<optgroup label="Kan bevatten">` +
+          allergens.map(a => mkOpt("kan|" + a, a)).join("") +
+          `</optgroup>`
+        );
+        allergenFilter.insertAdjacentHTML("beforeend",
+          `<optgroup label="Bevat of kan bevatten">` +
+          allergens.map(a => mkOpt("bevatkan|" + a, a)).join("") +
+          `</optgroup>`
+        );
       }
     }
 
-
-function renderAllSections(){
+    function renderAllSections(){
       sectionsRoot.innerHTML = "";
       const categorieKeys = Object.keys(PRODUCTEN_PER_CATEGORIE || {});
 
@@ -284,17 +604,20 @@ function renderAllSections(){
           .sort((a,b) => (a.naam || "").localeCompare((b.naam || ""), "nl", { sensitivity:"base" }));
 
         const section = document.createElement("div");
-        section.className = "section";
+        section.className = "sectionCard";
         section.setAttribute("data-category", cat);
 
-        section.innerHTML = `
-          <h2>${escapeHtml(getCategorieTitel(cat))} <span class="pill">${escapeHtml(cat)}</span></h2>
-          <div class="list"></div>
+        const header = document.createElement("div");
+        header.className = "sectionHead";
+        header.innerHTML = `
+          <h3>${escapeHtml(getCategorieTitel(cat))}</h3>
+          <span class="pill">${escapeHtml(cat)}</span>
         `;
 
-        const list = section.querySelector(".list");
+        const body = document.createElement("div");
+        body.className = "sectionBody";
 
-        for (const p of producten){
+        for(const p of producten){
           const item = document.createElement("div");
           item.className = "item";
           item.setAttribute("data-category", cat);
@@ -303,29 +626,30 @@ function renderAllSections(){
           item.setAttribute("data-kan", normalize((p.kanBevatten || []).join(" | ")));
           item.setAttribute("data-bevatkan", normalize([...(p.bevat||[]), ...(p.kanBevatten||[])].join(" | ")));
 
-
           const tags = [];
-          (p.bevat || []).forEach(a => tags.push(`<span class="tag warn">bevat: ${escapeHtml(a)}</span>`));
+          (p.bevat || []).forEach(a => tags.push(`<span class="tag warn">⚠️ bevat: ${escapeHtml(a)}</span>`));
           (p.kanBevatten || []).forEach(a => tags.push(`<span class="tag">kan bevatten: ${escapeHtml(a)}</span>`));
-          // "zonder" kan veel info zijn: toon alleen als showZonder aan staat,
-          // of (om rustig te blijven) wanneer er géén "bevat/kan bevatten" tags zijn.
+
           const hasRisk = ((p.bevat || []).length + (p.kanBevatten || []).length) > 0;
           if (showZonder || !hasRisk){
             (p.zonder || []).forEach(a => tags.push(`<span class="tag">zonder: ${escapeHtml(a)}</span>`));
           }
+
           if ((p.zieVerpakking || []).length) {
             tags.push(`<span class="tag">check etiket</span>`);
           }
 
           item.innerHTML = `
             <div class="name">${escapeHtml(p.naam || "")}</div>
-            <div class="meta">Categorie: ${escapeHtml(getCategorieTitel(cat))}</div>
+            <div class="submeta">Categorie: ${escapeHtml(getCategorieTitel(cat))}</div>
             <div class="tags">${tags.join("") || '<span class="tag">check etiket</span>'}</div>
           `;
 
-          list.appendChild(item);
+          body.appendChild(item);
         }
 
+        section.appendChild(header);
+        section.appendChild(body);
         sectionsRoot.appendChild(section);
       }
     }
@@ -335,10 +659,10 @@ function renderAllSections(){
 
       const af = (activeAllergenFilter || "alles");
       const [afTypeRaw, ...afRest] = af.split("|");
-      const afType = afTypeRaw;
+      const afType = afTypeRaw; // alles | bevat | kan | bevatkan
       const afValue = normalize(afRest.join("|") || "");
-      const sections = Array.from(document.querySelectorAll('.section'));
 
+      const sections = Array.from(document.querySelectorAll('.sectionCard'));
       let visibleCount = 0;
 
       sections.forEach(section => {
@@ -350,7 +674,12 @@ function renderAllSections(){
 
           const matchesText = !q || hay.includes(q);
           const matchesCat  = (activeFilter === 'alles') || (cat === activeFilter);
-          const attrName = (afType === 'bevat' ? 'data-bevat' : afType === 'kan' ? 'data-kan' : afType === 'bevatkan' ? 'data-bevatkan' : 'data-bevatkan');
+
+          const attrName =
+            (afType === 'bevat' ? 'data-bevat' :
+             afType === 'kan' ? 'data-kan' :
+             afType === 'bevatkan' ? 'data-bevatkan' : 'data-bevatkan');
+
           const draagt = normalize(item.getAttribute(attrName));
           const matchesAllergen = (afType === 'alles') || !afValue || draagt.includes(afValue);
 
@@ -363,21 +692,18 @@ function renderAllSections(){
         section.classList.toggle('hidden', !hasVisible);
       });
 
-      resultCount.textContent = `${visibleCount} product(en) gevonden`;
+      resultCount.textContent = String(visibleCount);
+      empty.style.display = visibleCount === 0 ? "block" : "none";
     }
 
+    // Events
     searchInput.addEventListener('input', applyFilters);
+
     clearBtn.addEventListener('click', () => {
       searchInput.value = '';
       searchInput.focus();
       applyFilters();
     });
-
-    // init
-    buildChips();
-    buildAllergenDropdown();
-    renderAllSections();
-    applyFilters();
 
     toggleZonder.addEventListener("change", () => {
       showZonder = toggleZonder.checked;
@@ -389,6 +715,36 @@ function renderAllSections(){
       activeAllergenFilter = allergenFilter.value || "alles";
       applyFilters();
     });
+
+    resetBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      showZonder = false;
+      toggleZonder.checked = false;
+      activeFilter = "alles";
+      activeAllergenFilter = "alles";
+      allergenFilter.value = "alles";
+      buildChips();
+      renderAllSections();
+      applyFilters();
+      searchInput.focus();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if(e.key === "Escape"){
+        searchInput.value = "";
+        applyFilters();
+      }
+      if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k"){
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+
+    // Init
+    buildChips();
+    buildAllergenDropdown();
+    renderAllSections();
+    applyFilters();
   </script>
 </body>
 </html>
