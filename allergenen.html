@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Notenexpres – Allergenen</title>
+
+  <style>
+    :root{
+      --brand:#E53D23;
+      --brand-deep:#C4321C;
+
+      --bg-1:#0f0f10;
+      --bg-2:#171314;
+      --card:#1a1b1e;
+      --text:#F2F2F3;
+      --muted:#B9BBC1;
+      --muted-2:#8E9097;
+
+      --radius:24px;
+      --btn-radius:18px;
+      --shadow: 0 22px 70px rgba(0,0,0,.52);
+
+      --side: clamp(22px, 5vw, 56px);
+
+      --chip: rgba(255,255,255,.06);
+      --chip-border: rgba(255,255,255,.10);
+      --line: rgba(229,61,35,.16);
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      min-height:100vh;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 50% 18%, rgba(229,61,35,.18), rgba(229,61,35,0) 60%),
+        linear-gradient(180deg, var(--bg-2), var(--bg-1) 72%);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      color-scheme: dark;
+    }
+
+    body::before, body::after{
+      content:"";
+      position:fixed;
+      top:0; bottom:0;
+      width:var(--side);
+      z-index:0;
+      background:
+        linear-gradient(180deg,
+          rgba(255,255,255,.10) 0%,
+          rgba(255,255,255,0) 10%,
+          rgba(0,0,0,.10) 100%),
+        linear-gradient(180deg, var(--brand), var(--brand-deep));
+      box-shadow:
+        inset 0 0 0 1px rgba(0,0,0,.22),
+        inset 0 12px 42px rgba(0,0,0,.22);
+    }
+    body::before{ left:0; }
+    body::after{ right:0; }
+
+    .wrap{
+      position:relative;
+      z-index:1;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 26px 16px 54px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 18px;
+    }
+
+    .brandRow{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+    .brandRow img{
+      width:46px;
+      height:46px;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: 0 10px 26px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.06);
+    }
+    .brandRow h1{
+      font-size: 18px;
+      margin:0;
+      line-height: 1.1;
+      letter-spacing: .2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    .brandRow p{
+      margin:4px 0 0;
+      font-size: 12.5px;
+      color: var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: var(--btn-radius);
+      color: var(--text);
+      text-decoration:none;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 10px 34px rgba(0,0,0,.22);
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      font-weight: 700;
+      font-size: 13.5px;
+      letter-spacing: .1px;
+      cursor:pointer;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(229,61,35,.45);
+      background: rgba(229,61,35,.10);
+    }
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(229,61,35,.95), rgba(196,50,28,.95));
+      border-color: rgba(0,0,0,.18);
+      color: #111;
+      font-weight: 900;
+    }
+
+    .hero{
+      margin-top: 12px;
+      padding: 18px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)),
+        radial-gradient(820px 320px at 10% 10%, rgba(229,61,35,.22), transparent 60%);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+    }
+    .hero h2{
+      margin:0 0 8px;
+      font-size: 20px;
+      letter-spacing:.2px;
+    }
+    .hero .sub{
+      margin:0;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.35;
+    }
+
+    .controls{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 12px;
+      align-items: start;
+    }
+    @media (max-width: 900px){
+      .controls{ grid-template-columns: 1fr; }
+      .nav{ justify-content:flex-start; }
+      .topbar{ flex-direction: column; align-items: stretch; }
+    }
+
+    .search{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .search input{
+      width:100%;
+      border:0;
+      outline:0;
+      background: transparent;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .search input::placeholder{ color: rgba(185,187,193,.72); }
+
+    .metaBox{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .metaBox strong{ color: var(--text); font-weight: 800; }
+
+    .chips{
+      margin-top: 12px;
+      display:flex;
+      gap:10px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+    .chip{
+      user-select:none;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color: var(--text);
+      font-weight: 800;
+      font-size: 13px;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .chip:hover{ transform: translateY(-1px); border-color: rgba(229,61,35,.38); }
+    .chip.active{
+      background: rgba(229,61,35,.18);
+      border-color: rgba(229,61,35,.55);
+    }
+
+    .hr{
+      margin-top: 12px;
+      height:1px;
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+    }
+
+    .tools2{
+      margin-top: 12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .toggle{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 13px;
+      user-select:none;
+    }
+    .toggle input{ accent-color: var(--brand); }
+
+    .grid{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 740px){ .grid{ grid-template-columns: 1fr; } }
+
+    .sectionCard{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 16px 55px rgba(0,0,0,.34);
+      overflow:hidden;
+    }
+    .sectionHead{
+      padding: 14px 14px 12px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      background: radial-gradient(520px 190px at 15% 0%, rgba(229,61,35,.18), transparent 60%);
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .sectionHead h3{
+      margin:0;
+      font-size: 16px;
+      letter-spacing:.15px;
+      line-height:1.2;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(229,61,35,.14);
+      border: 1px solid rgba(229,61,35,.34);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing:.1px;
+      white-space:nowrap;
+    }
+    .sectionBody{
+      padding: 12px 14px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .item{
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 12px 12px;
+    }
+    .name{
+      font-weight: 900;
+      letter-spacing:.1px;
+    }
+    .submeta{
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .tags{
+      margin-top: 10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing:.1px;
+    }
+    .tag.warn{
+      background: rgba(229,61,35,.14);
+      border-color: rgba(229,61,35,.34);
+    }
+
+    .empty{
+      display:none;
+      margin-top: 16px;
+      padding: 18px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      border:1px dashed rgba(255,255,255,.16);
+      color: var(--muted);
+    }
+    .empty strong{ color: var(--text); }
+
+    code{
+      background: rgba(255,255,255,.06);
+      padding:2px 6px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.10);
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .hidden{ display:none !important; }
+
+    /* ---------- Multi-allergenen filter UI ---------- */
+    .allergenMulti{ position: relative; }
+
+    .allergenPanel{
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 18px;
+      background: rgba(15,15,16,.92);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 18px 60px rgba(0,0,0,.55);
+    }
+
+    .allergenPanelTop{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom: 10px;
+    }
+
+    .mode{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .modeBtn{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight: 900;
+      padding: 8px 10px;
+      border-radius: 999px;
+      cursor:pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .modeBtn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(229,61,35,.38);
+      background: rgba(229,61,35,.10);
+    }
+    .modeBtn.active{
+      background: rgba(229,61,35,.18);
+      border-color: rgba(229,61,35,.55);
+    }
+
+    .panelActions{
+      display:flex;
+      gap:8px;
+    }
+
+    .tinyBtn{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight: 900;
+      padding: 8px 10px;
+      border-radius: 999px;
+      cursor:pointer;
+    }
+
+    .allergenList{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    @media (max-width: 740px){
+      .allergenList{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 460px){
+      .allergenList{ grid-template-columns: 1fr; }
+    }
+
+    .chk{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      cursor:pointer;
+      user-select:none;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .chk input{ accent-color: var(--brand); }
+
+    .allergenPanelFoot{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <header class="topbar">
+      <div class="brandRow">
+        <img src="logo.jpg" alt="Notenexpres logo" onerror="this.style.display='none'">
+        <div style="min-width:0">
+          <h1>Notenexpres – Allergenen</h1>
+          <p>Zoek producten en filter op categorie en meerdere allergenen.</p>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Navigatie">
+        <a class="btn" href="index.html">Home</a>
+        <a class="btn primary" href="recepten.html">Recepten</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>Allergenenoverzicht</h2>
+      <p class="sub">
+        Zoek op productnaam, filter op categorie en vink meerdere allergenen aan.
+      </p>
+
+      <div class="controls">
+        <div class="search" role="search" aria-label="Zoeken in allergenenlijst">
+          <span aria-hidden="true">🔎</span>
+          <input id="searchInput" type="search" placeholder="Zoek product (bijv. cashew, cranberry, salademix)…" autocomplete="off" />
+        </div>
+        <div class="metaBox">
+          <div><strong id="resultCount">0</strong> product(en) zichtbaar</div>
+          <button id="clearBtn" class="btn" type="button" style="padding:10px 12px;">Wis zoeken</button>
+        </div>
+      </div>
+
+      <div class="chips" id="chipbar" aria-label="Categorieën"></div>
+
+      <div class="tools2" aria-label="Extra filters">
+        <label class="toggle">
+          <input id="toggleZonder" type="checkbox" />
+          Toon ook “zonder”
+        </label>
+
+        <!-- Multi allergenen -->
+        <div class="allergenMulti">
+          <button class="btn" type="button" id="allergenBtn" aria-haspopup="dialog" aria-expanded="false">
+            Filter allergenen… <span id="allergenCount" style="opacity:.85">(alles)</span>
+          </button>
+
+          <div class="allergenPanel hidden" id="allergenPanel" role="dialog" aria-label="Kies allergenen">
+            <div class="allergenPanelTop">
+              <div class="mode">
+                <button type="button" class="modeBtn active" data-mode="bevatkan">Bevat of kan bevatten</button>
+                <button type="button" class="modeBtn" data-mode="bevat">Bevat</button>
+                <button type="button" class="modeBtn" data-mode="kan">Kan bevatten</button>
+              </div>
+              <div class="panelActions">
+                <button type="button" class="tinyBtn" id="allergenClear">Wis</button>
+                <button type="button" class="tinyBtn" id="allergenClose">Sluiten</button>
+              </div>
+            </div>
+
+            <div class="allergenList" id="allergenList"></div>
+
+            <div class="allergenPanelFoot">
+              Tip: je kunt meerdere allergenen aanvinken.
+            </div>
+          </div>
+        </div>
+
+        <button id="resetBtn" class="btn" type="button">Reset filters</button>
+      </div>
+
+    <section class="grid" id="sectionsRoot" aria-label="Allergenen per categorie"></section>
+
+    <section class="empty" id="empty">
+      <strong>Geen resultaten.</strong><br>
+      Probeer een andere zoekterm of zet filters uit.
+    </section>
+  </main>
+
+  <script src="producten.js"></script>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const resultCount = document.getElementById('resultCount');
+    const chipbar = document.getElementById('chipbar');
+
+    const toggleZonder = document.getElementById('toggleZonder');
+    const sectionsRoot = document.getElementById('sectionsRoot');
+    const empty = document.getElementById('empty');
+
+    // Multi allergenen UI
+    const allergenBtn   = document.getElementById('allergenBtn');
+    const allergenPanel = document.getElementById('allergenPanel');
+    const allergenList  = document.getElementById('allergenList');
+    const allergenCount = document.getElementById('allergenCount');
+    const allergenClear = document.getElementById('allergenClear');
+    const allergenClose = document.getElementById('allergenClose');
+
+    let showZonder = false;
+    let activeFilter = 'alles';
+
+    // Multi-select state
+    let allergenMode = "bevatkan";       // bevatkan | bevat | kan
+    let selectedAllergens = new Set();   // meerdere allergenen (OR)
+
+    function normalize(s){
+      return (s || '').toString().toLowerCase().trim()
+        .normalize("NFD").replace(/\p{Diacritic}/gu, "");
+    }
+
+    function escapeHtml(str) {
+      return (str ?? "").toString()
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    function getCategorieTitel(key){
+      if (typeof CATEGORIE_TITELS === "object" && CATEGORIE_TITELS[key]) return CATEGORIE_TITELS[key];
+      return key;
+    }
+
+    function buildSearchHaystack(p, catKey){
+      const parts = [
+        p.naam,
+        catKey,
+        getCategorieTitel(catKey),
+        ...(p.bevat || []),
+        ...(p.kanBevatten || []),
+        ...(p.zonder || []),
+        ...(p.zieVerpakking || []),
+      ];
+      return normalize(parts.join(" "));
+    }
+
+    function buildChips(){
+      chipbar.innerHTML = "";
+
+      const keys = Object.keys(PRODUCTEN_PER_CATEGORIE || {});
+      const mkChip = (key, label) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "chip" + (activeFilter === key ? " active" : "");
+        b.dataset.filter = key;
+        b.textContent = label;
+        b.addEventListener("click", () => {
+          activeFilter = key;
+          Array.from(chipbar.querySelectorAll(".chip")).forEach(x => x.classList.remove("active"));
+          b.classList.add("active");
+          applyFilters();
+        });
+        chipbar.appendChild(b);
+      };
+
+      mkChip("alles", "Alles");
+      for(const k of keys){
+        mkChip(k, getCategorieTitel(k));
+      }
+    }
+
+    function collectAllergens(){
+      const set = new Set();
+      const keys = Object.keys(PRODUCTEN_PER_CATEGORIE || {});
+      for (const cat of keys){
+        for (const p of (PRODUCTEN_PER_CATEGORIE[cat] || [])){
+          (p.bevat || []).forEach(a => set.add(a));
+          (p.kanBevatten || []).forEach(a => set.add(a));
+        }
+      }
+      return Array.from(set).sort((a,b)=>a.localeCompare(b,"nl",{sensitivity:"base"}));
+    }
+
+    function updateAllergenCount(){
+      if(selectedAllergens.size === 0){
+        allergenCount.textContent = "(alles)";
+      } else {
+        allergenCount.textContent = `(${selectedAllergens.size} gekozen)`;
+      }
+    }
+
+    function buildAllergenMulti(){
+      const allergens = collectAllergens();
+      allergenList.innerHTML = "";
+
+      for(const a of allergens){
+        const id = "alg_" + normalize(a).replace(/\s+/g,"_");
+        const label = document.createElement("label");
+        label.className = "chk";
+        label.innerHTML = `
+          <input type="checkbox" value="${escapeHtml(a)}" id="${id}">
+          <span>${escapeHtml(a)}</span>
+        `;
+        const input = label.querySelector("input");
+        input.addEventListener("change", () => {
+          const val = input.value;
+          if(input.checked) selectedAllergens.add(val);
+          else selectedAllergens.delete(val);
+          updateAllergenCount();
+          applyFilters();
+        });
+        allergenList.appendChild(label);
+      }
+
+      document.querySelectorAll(".modeBtn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".modeBtn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          allergenMode = btn.dataset.mode;
+          applyFilters();
+        });
+      });
+
+      updateAllergenCount();
+    }
+
+    function renderAllSections(){
+      sectionsRoot.innerHTML = "";
+      const categorieKeys = Object.keys(PRODUCTEN_PER_CATEGORIE || {});
+
+      for (const cat of categorieKeys){
+        const producten = (PRODUCTEN_PER_CATEGORIE[cat] || []).slice()
+          .sort((a,b) => (a.naam || "").localeCompare((b.naam || ""), "nl", { sensitivity:"base" }));
+
+        const section = document.createElement("div");
+        section.className = "sectionCard";
+        section.setAttribute("data-category", cat);
+
+        const header = document.createElement("div");
+        header.className = "sectionHead";
+        header.innerHTML = `
+          <h3>${escapeHtml(getCategorieTitel(cat))}</h3>
+          <span class="pill">${escapeHtml(cat)}</span>
+        `;
+
+        const body = document.createElement("div");
+        body.className = "sectionBody";
+
+        for(const p of producten){
+          const item = document.createElement("div");
+          item.className = "item";
+          item.setAttribute("data-category", cat);
+          item.setAttribute("data-name", buildSearchHaystack(p, cat));
+          item.setAttribute("data-bevat", normalize((p.bevat || []).join(" | ")));
+          item.setAttribute("data-kan", normalize((p.kanBevatten || []).join(" | ")));
+          item.setAttribute("data-bevatkan", normalize([...(p.bevat||[]), ...(p.kanBevatten||[])].join(" | ")));
+
+          const tags = [];
+          (p.bevat || []).forEach(a => tags.push(`<span class="tag warn">⚠️ bevat: ${escapeHtml(a)}</span>`));
+          (p.kanBevatten || []).forEach(a => tags.push(`<span class="tag">kan bevatten: ${escapeHtml(a)}</span>`));
+
+          const hasRisk = ((p.bevat || []).length + (p.kanBevatten || []).length) > 0;
+          if (showZonder || !hasRisk){
+            (p.zonder || []).forEach(a => tags.push(`<span class="tag">zonder: ${escapeHtml(a)}</span>`));
+          }
+
+          if ((p.zieVerpakking || []).length) {
+            tags.push(`<span class="tag">check etiket</span>`);
+          }
+
+          item.innerHTML = `
+            <div class="name">${escapeHtml(p.naam || "")}</div>
+            <div class="submeta">Categorie: ${escapeHtml(getCategorieTitel(cat))}</div>
+            <div class="tags">${tags.join("") || '<span class="tag">check etiket</span>'}</div>
+          `;
+
+          body.appendChild(item);
+        }
+
+        section.appendChild(header);
+        section.appendChild(body);
+        sectionsRoot.appendChild(section);
+      }
+    }
+
+    function applyFilters(){
+      const q = normalize(searchInput.value);
+
+      const sections = Array.from(document.querySelectorAll('.sectionCard'));
+      let visibleCount = 0;
+
+      sections.forEach(section => {
+        const items = Array.from(section.querySelectorAll('.item'));
+
+        items.forEach(item => {
+          const hay = normalize(item.getAttribute('data-name'));
+          const cat  = item.getAttribute('data-category');
+
+          const matchesText = !q || hay.includes(q);
+          const matchesCat  = (activeFilter === 'alles') || (cat === activeFilter);
+
+          // Multi-select allergenen filter
+          const attrName =
+            (allergenMode === 'bevat' ? 'data-bevat' :
+             allergenMode === 'kan' ? 'data-kan' :
+             'data-bevatkan');
+
+          const draagt = normalize(item.getAttribute(attrName));
+
+         // AND-filter: als niets gekozen -> alles toegestaan
+let matchesAllergen = true;
+if(selectedAllergens.size > 0){
+  for(const a of selectedAllergens){
+    if(!draagt.includes(normalize(a))){
+      matchesAllergen = false;
+      break;
+    }
+  }
+}
+
+          const show = matchesText && matchesCat && matchesAllergen;
+          item.classList.toggle('hidden', !show);
+          if(show) visibleCount++;
+        });
+
+        const hasVisible = items.some(it => !it.classList.contains('hidden'));
+        section.classList.toggle('hidden', !hasVisible);
+      });
+
+      resultCount.textContent = String(visibleCount);
+      empty.style.display = visibleCount === 0 ? "block" : "none";
+    }
+
+    // Events
+    searchInput.addEventListener('input', applyFilters);
+
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchInput.focus();
+      applyFilters();
+    });
+
+    toggleZonder.addEventListener("change", () => {
+      showZonder = toggleZonder.checked;
+      renderAllSections();
+      applyFilters();
+    });
+
+    // Panel open/close
+    allergenBtn.addEventListener("click", () => {
+      const open = !allergenPanel.classList.contains("hidden");
+      allergenPanel.classList.toggle("hidden", open);
+      allergenBtn.setAttribute("aria-expanded", String(!open));
+    });
+
+    allergenClose.addEventListener("click", () => {
+      allergenPanel.classList.add("hidden");
+      allergenBtn.setAttribute("aria-expanded", "false");
+    });
+
+    allergenClear.addEventListener("click", () => {
+      selectedAllergens.clear();
+      allergenList.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+      updateAllergenCount();
+      applyFilters();
+    });
+
+    // Reset alles
+    resetBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      showZonder = false;
+      toggleZonder.checked = false;
+      activeFilter = "alles";
+
+      allergenMode = "bevatkan";
+      selectedAllergens.clear();
+      allergenList.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+      updateAllergenCount();
+
+      document.querySelectorAll(".modeBtn").forEach(b => b.classList.remove("active"));
+      const defBtn = document.querySelector('.modeBtn[data-mode="bevatkan"]');
+      if(defBtn) defBtn.classList.add("active");
+
+      allergenPanel.classList.add("hidden");
+      allergenBtn.setAttribute("aria-expanded", "false");
+
+      buildChips();
+      renderAllSections();
+      applyFilters();
+      searchInput.focus();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if(e.key === "Escape"){
+        // sluit panel als open
+        allergenPanel.classList.add("hidden");
+        allergenBtn.setAttribute("aria-expanded", "false");
+      }
+      if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k"){
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+
+    // Init
+    buildChips();
+    buildAllergenMulti();
+    renderAllSections();
+    applyFilters();
+  </script>
+</body>
+</html>
