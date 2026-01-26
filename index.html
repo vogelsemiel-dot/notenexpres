@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Notenexpres – Start</title>
+
+  <style>
+    :root{
+      --brand:#E53D23;
+      --brand-deep:#C4321C;
+
+      --bg-1:#0f0f10;
+      --bg-2:#171314;
+      --text:#F2F2F3;
+      --muted:#B9BBC1;
+
+      --radius:24px;
+      --btn-radius:18px;
+      --shadow: 0 22px 70px rgba(0,0,0,.52);
+      --side: clamp(22px, 5vw, 56px);
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      min-height:100vh;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 50% 18%, rgba(229,61,35,.18), rgba(229,61,35,0) 60%),
+        linear-gradient(180deg, var(--bg-2), var(--bg-1) 72%);
+    }
+
+    body::before, body::after{
+      content:"";
+      position:fixed;
+      top:0; bottom:0;
+      width:var(--side);
+      background: linear-gradient(180deg, var(--brand), var(--brand-deep));
+      z-index:0;
+    }
+    body::before{ left:0; }
+    body::after{ right:0; }
+
+    .wrap{
+      position:relative;
+      z-index:1;
+      max-width:1080px;
+      margin:0 auto;
+      padding:26px 16px 54px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:18px;
+    }
+
+    .brandRow{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brandRow img{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+    }
+
+    .brandRow h1{
+      margin:0;
+      font-size:18px;
+    }
+
+    .brandRow p{
+      margin:4px 0 0;
+      font-size:12.5px;
+      color:var(--muted);
+    }
+
+    .hero{
+      padding:18px;
+      border-radius:24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)),
+        radial-gradient(820px 320px at 10% 10%, rgba(229,61,35,.22), transparent 60%);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+    }
+
+    .hero h2{
+      margin:0 0 8px;
+      font-size:20px;
+    }
+
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .grid{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+
+    .card{
+  display:block;
+  border-radius:24px;
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.10);
+  padding:14px;
+  color:var(--text);
+  text-decoration:none;
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+}
+
+.card:hover{
+  transform: translateY(-1px);
+  border-color: rgba(229,61,35,.45);
+  background: rgba(229,61,35,.10);
+}
+
+    }
+
+    .card h3{
+      margin:0 0 6px;
+      font-size:16px;
+    }
+
+    .card p{
+      margin:0 0 10px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .biglink{
+      display:flex;
+      justify-content:space-between;
+      padding:14px;
+      border-radius:18px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:800;
+    }
+
+    .linksBar{
+      margin-top:16px;
+      padding:14px;
+      border-radius:24px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .linksRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .chipLink{
+      padding:10px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:800;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .svgIcon{
+      width:18px;
+      height:18px;
+      fill:currentColor;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <header class="topbar">
+      <div class="brandRow">
+        <img src="logo.jpg" alt="Notenexpres logo">
+        <div>
+          <h1>Notenexpres – Start</h1>
+          <p>Snel checken via QR: allergenen & inspiratie.</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h2>Welkom bij Notenexpres 👋</h2>
+      <p>Zin in iets lekkers? Ontdek onze recepten of check direct de allergenen per product.</p>
+    </section>
+
+   <section class="grid">
+  <a class="card" href="recepten.html">
+    <h3>Recepten</h3>
+    <p>Inspiratie met noten, zaden en gedroogd fruit.</p>
+  </a>
+
+  <a class="card" href="allergenen.html">
+    <h3>Allergenen</h3>
+    <p>Snel overzicht per product en categorie.</p>
+  </a>
+</section>
+
+    <section class="linksBar">
+      <div class="linksRow">
+        <a class="chipLink" href="https://www.notenexpres.nl/" target="_blank">🌐 Website</a>
+
+        <a class="chipLink"
+           href="https://www.instagram.com/notenexpres?igsh=MWQ1aXp6cnpuY3U3ZQ%3D%3D"
+           target="_blank">
+          <svg class="svgIcon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 7.3A2.8 2.8 0 1 1 14.8 12 2.81 2.81 0 0 1 12 14.8zM17.8 6.3a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/>
+          </svg>
+          Instagram
+        </a>
+
+        <a class="chipLink"
+           href="https://www.facebook.com/share/1ALKrxz3vY/"
+           target="_blank">
+          <svg class="svgIcon" viewBox="0 0 24 24">
+            <path d="M13.5 22v-8h2.7l.8-3h-3.5V9.1c0-.9.3-1.6 1.7-1.6H17V4.8c-.3 0-1.5-.1-2.9-.1-2.8 0-4.7 1.7-4.7 4.8V11H6v3h3.4v8h4.1z"/>
+          </svg>
+          Facebook
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
