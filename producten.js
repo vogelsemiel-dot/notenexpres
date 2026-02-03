@@ -230,6 +230,30 @@ var PRODUCTEN_PER_CATEGORIE = {
       "zieVerpakking": []
     },
     {
+      "naam": "Borrelnoten knoflook",
+      "bevat": [
+        "Gluten",
+        "Pinda",
+        "Melk"
+       ],
+       "kanBevatten": [
+        "Noten"
+       ],
+       "zonder": [
+        "Schaaldieren",
+        "Ei",
+        "Vis",
+        "Soja",
+        "Selderij",
+        "Mosterd",
+        "Sesam",
+        "Sulfiet",
+        "Lupine",
+        "Weekdieren"
+      ],
+      "zieVerpakking": []
+    },
+    {
       "naam": "Gepelde pistache",
       "bevat": [
         "Noten"
@@ -3113,7 +3137,31 @@ var PRODUCTEN_PER_CATEGORIE = {
       "zieVerpakking": []
     },
     {
-      "naam": "Chinese bollen mix",
+      "naam": "Chinese bollen mix (groot)",
+      "bevat": [
+        "Gluten",
+        "Pinda",
+        "Soja",
+        "Sesam"
+      ],
+      "kanBevatten": [
+        "Vis",
+        "Melk",
+        "Noten",
+        "Selderij",
+        "Weekdieren"
+      ],
+      "zonder": [
+        "Schaaldieren",
+        "Ei",
+        "Mosterd",
+        "Sulfiet",
+        "Lupine"
+      ],
+      "zieVerpakking": []
+    },
+    {
+      "naam": "Chinese bollen mix (klein)",
       "bevat": [
         "Gluten",
         "Pinda",
