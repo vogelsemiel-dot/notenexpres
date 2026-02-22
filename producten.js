@@ -1,3 +1,77 @@
+/* ======================================================================
+   HANDLEIDING (producten.js)
+   ----------------------------------------------------------------------
+   Dit bestand bevat ALLE producten en hun allergenen, gegroepeerd per
+   categorie. De website leest de variabele `PRODUCTEN_PER_CATEGORIE`
+   en toont daarna de categorie-titels uit `CATEGORIE_TITELS`.
+
+   Snelle regels
+   1) Bewerk dit bestand bij voorkeur in VS Code en gebruik:
+      Format Document (Shift+Alt+F) zodat komma’s/inspringing kloppen.
+   2) Houd je aan de vaste veldnamen per product:
+      - naam         : string (verplicht)
+      - bevat        : array van allergenen (rood in Excel)
+      - kanBevatten  : array van allergenen (geel in Excel)
+      - zonder       : array van allergenen (groen in Excel)
+      - zieVerpakking: array met allergenen of notities (optioneel)
+   3) JSON-achtige syntax: strings tussen quotes, arrays met [ ... ],
+      objecten met { ... }. Let op komma’s tussen items.
+
+   Toegestane allergenen (gebruik exact deze schrijfwijze)
+   Gluten, Schaaldieren, Ei, Vis, Pinda, Soja, Melk, Noten,
+   Selderij, Mosterd, Sesam, Sulfiet, Lupine, Weekdieren
+
+   ----------------------------------------------------------------------
+   1) Product toevoegen (meest voorkomend)
+   ----------------------------------------------------------------------
+   Stap A: Zoek de juiste categorie in `PRODUCTEN_PER_CATEGORIE`,
+          bijvoorbeeld "zuidvruchten" of "voordeelassortiment".
+   Stap B: Plak onderstaand blok in de juiste categorie-array (tussen
+          de [ ... ]), en vul de waarden in.
+   Stap C: Let op de komma:
+          - Als je plakt TUSSEN andere producten: zorg dat er een komma
+            staat tussen de objecten.
+          - Het LAATSTE product in de lijst heeft géén komma erachter.
+
+   KOPIEER & PLAK (nieuw product)
+   ----------------------------------------------------------------------
+   {
+     "naam": "NIEUW PRODUCT",
+     "bevat": [
+       "Pinda"
+     ],
+     "kanBevatten": [
+       "Noten"
+     ],
+     "zonder": [
+       "Gluten",
+       "Schaaldieren",
+       "Ei",
+       "Vis",
+       "Soja",
+       "Melk",
+       "Selderij",
+       "Mosterd",
+       "Sesam",
+       "Sulfiet",
+       "Lupine",
+       "Weekdieren"
+     ],
+     "zieVerpakking": []
+   }
+   ----------------------------------------------------------------------
+
+   Tips
+   - Als een allergeen onbekend is of niet zeker: zet het liever in
+     `zieVerpakking` als notitie, of laat het veld leeg en verwijs naar
+     het etiket (etiket/verpakking blijft leidend).
+   - Gebruik 1 consistente productnaam (naam) om dubbelingen te voorkomen.
+   - Nieuwe categorie toevoegen?
+     1) Voeg een nieuwe key toe in `PRODUCTEN_PER_CATEGORIE`, bijv.
+        "mijn-nieuwe-categorie": [ ... ]
+     2) Voeg dezelfde key toe in `CATEGORIE_TITELS` met een nette titel.
+   ====================================================================== */
+
 // producten.js (leesbare versie)
 // Tip: bewerk dit bestand in VS Code en gebruik Format Document (Shift+Alt+F).
 // Velden per product:
