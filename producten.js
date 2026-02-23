@@ -58,7 +58,7 @@
        "Weekdieren"
      ],
      "zieVerpakking": []
-   }
+   },
    ----------------------------------------------------------------------
 
    Tips
@@ -1831,12 +1831,12 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Granola",
       "bevat": [
         "Noten"
+        "Gluten"
       ],
       "kanBevatten": [
         "Pinda"
       ],
       "zonder": [
-        "Gluten",
         "Schaaldieren",
         "Ei",
         "Vis",
@@ -1855,12 +1855,13 @@ var PRODUCTEN_PER_CATEGORIE = {
       "naam": "Muesli",
       "bevat": [
         "Noten"
+        "Gluten"
+        "Sulfiet"
       ],
       "kanBevatten": [
         "Pinda"
       ],
       "zonder": [
-        "Gluten",
         "Schaaldieren",
         "Ei",
         "Vis",
@@ -1869,7 +1870,6 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Selderij",
         "Mosterd",
         "Sesam",
-        "Sulfiet",
         "Lupine",
         "Weekdieren"
       ],
