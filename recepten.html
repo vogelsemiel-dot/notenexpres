@@ -1,3 +1,62 @@
+<!--
+===========================================================
+HANDLEIDING (kort) – Recepten beheren in recepten.html
+===========================================================
+
+In dit project staat ALLES in één bestand: recepten.html.
+De receptenlijst staat in de <script>-sectie als:
+
+  const RECIPES = [ ... ];
+
+Elke { ... } is één recept.
+
+-----------------------------------------------------------
+SNEL NIEUW RECEPT TOEVOEGEN (kopiëren/plakken)
+-----------------------------------------------------------
+1) Zoek in dit bestand naar:  const RECIPES = [
+2) Scroll naar het einde van die lijst (vlak boven de regel: ];
+3) Plak onderstaand blok als NIEUW recept.
+4) Pas aan:
+   - id: maak uniek (bijv. "r37")
+   - cat: kies een bestaande categorie (Ontbijt, Snacks, Bakken, Salades, Hartig, Zoet, Dranken, Cadeau)
+   - title/desc/time/tags/ing/steps
+   - allergens: laat leeg als [] of vul bijv. ["noten","melk"]
+
+LET OP (belangrijk):
+- Laat de structuur precies zo staan: haakjes, komma’s en quotes.
+- Binnen de RECIPES-lijst eindigt een recept meestal met "},".
+- Zorg dat je geen dubbele id’s gebruikt.
+
+-----------------------------------------------------------
+KOPIEER-EN-PLAK TEMPLATE (NIEUW RECEPT)
+-----------------------------------------------------------
+
+{
+  id:"rXX",
+  cat:"Snacks",
+  title:"Titel van je recept",
+  desc:"Korte omschrijving (1 zin).",
+  time:"20 min",
+  tags:["tag1","tag2","tag3"],
+  allergens:["noten"],
+  ing:[
+    "Ingrediënt 1",
+    "Ingrediënt 2",
+    "Ingrediënt 3"
+  ],
+  steps:[
+    "Stap 1",
+    "Stap 2",
+    "Stap 3"
+  ]
+},
+
+TIP: Geen allergenen? Gebruik: allergens:[]
+
+===========================================================
+EINDE HANDLEIDING
+===========================================================
+-->
 <!doctype html>
 <html lang="nl">
 <head>

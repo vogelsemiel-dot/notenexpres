@@ -6,7 +6,7 @@
    en toont daarna de categorie-titels uit `CATEGORIE_TITELS`.
 
    Snelle regels
-   1) Bewerk dit bestand bij voorkeur in VS Code en gebruik:
+   1) Bewerk dit bestand bij voorkeur in VS Code via GitHub developer mode en gebruik:
       Format Document (Shift+Alt+F) zodat komma’s/inspringing kloppen.
    2) Houd je aan de vaste veldnamen per product:
       - naam         : string (verplicht)
@@ -309,11 +309,11 @@ var PRODUCTEN_PER_CATEGORIE = {
         "Gluten",
         "Pinda",
         "Melk"
-       ],
-       "kanBevatten": [
+      ],
+      "kanBevatten": [
         "Noten"
-       ],
-       "zonder": [
+      ],
+      "zonder": [
         "Schaaldieren",
         "Ei",
         "Vis",
@@ -1830,7 +1830,7 @@ var PRODUCTEN_PER_CATEGORIE = {
     {
       "naam": "Granola",
       "bevat": [
-        "Noten"
+        "Noten",
         "Gluten"
       ],
       "kanBevatten": [
@@ -1854,8 +1854,8 @@ var PRODUCTEN_PER_CATEGORIE = {
     {
       "naam": "Muesli",
       "bevat": [
-        "Noten"
-        "Gluten"
+        "Noten",
+        "Gluten",
         "Sulfiet"
       ],
       "kanBevatten": [
@@ -2420,6 +2420,31 @@ var PRODUCTEN_PER_CATEGORIE = {
       ],
       "zieVerpakking": []
     },
+       {
+     "naam": "Zoute Mais",
+     "bevat": [
+     ],
+     "kanBevatten": [
+       "Noten",
+       "Pinda",
+       "Soja"
+     ],
+     "zonder": [
+       "Gluten",
+       "Schaaldieren",
+       "Ei",
+       "Vis",
+       "Soja",
+       "Melk",
+       "Selderij",
+       "Mosterd",
+       "Sesam",
+       "Sulfiet",
+       "Lupine",
+       "Weekdieren"
+     ],
+     "zieVerpakking": []
+   },
     {
       "naam": "Papayablokjes klein",
       "bevat": [
